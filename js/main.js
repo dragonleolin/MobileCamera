@@ -200,6 +200,7 @@ function takeSnapshot() {
     // if you'd like to show the canvas add it to the DOM
     // var canvas = document.createElement('canvas');
 
+    //存放照片的tag
     const cameraSensor = document.querySelector("#camera--sensor")
 
     var width = video.videoWidth;
@@ -212,8 +213,8 @@ function takeSnapshot() {
     context.drawImage(video, 0, 0, width, height);
 
     //take a picture 
-    cameraOutput.src = cameraSensor.toDataURL("image/webp");
-    cameraOutput.classList.add("taken");
+    cameraOutput = cameraSensor.toDataURL("image/webp");
+    // cameraOutput.classList.add("taken");
 
     // polyfil if needed https://github.com/blueimp/JavaScript-Canvas-to-Blob
     
