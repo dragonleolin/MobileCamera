@@ -69,7 +69,7 @@ function initCameraUI() {
             toggleFullScreenButton.setAttribute("aria-pressed", true);
         }
         else {
-            toggleFullScreenButton.setAttribute("aria-pressed", false);
+            toggleFullScreenButton.setAttribute("aria-pressed", true);
         }
     }
 
