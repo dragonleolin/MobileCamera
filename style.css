@@ -70,7 +70,7 @@ button {
     background-color: #fff;
 }
 
-#camera--sensor {
+#toggleFullScreenButton {
     display: none;
     width: 64px;
     height: 64px;
@@ -79,7 +79,7 @@ button {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-#camera--sensor[aria-pressed="true"] {
+#toggleFullScreenButton[aria-pressed="true"] {
     background-image: url('img/ic_fullscreen_exit_white_48px.svg');
 }
 
@@ -118,7 +118,7 @@ button {
         top: calc(50% - 32px);
     }
 
-    #camera--sensor { 
+    #toggleFullScreenButton { 
         left: calc(80% - 32px);
         top: calc(50% - 32px);
     }
@@ -152,7 +152,7 @@ button {
         top: calc(18% - 32px);
     }
 
-    #camera--sensor {
+    #toggleFullScreenButton {
         left: calc(50% - 32px);
         top: calc(82% - 32px);
     }
