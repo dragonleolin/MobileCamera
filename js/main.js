@@ -210,7 +210,7 @@ function takeSnapshot() {
     context.drawImage(video, 0, 0, width, height);
 
     //take a picture 
-    cameraOutput.src = cameraSensor.toDataURL("image/jpeg");
+    cameraOutput.src = cameraSensor.toDataURL("image/webp");
     cameraOutput.classList.add("taken");
 
     // polyfil if needed https://github.com/blueimp/JavaScript-Canvas-to-Blob
