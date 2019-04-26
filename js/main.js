@@ -213,21 +213,21 @@ function takeSnapshot() {
     context.drawImage(video, 0, 0, width, height);
 
     //take a picture 
-    cameraOutput = cameraSensor.toDataURL("image/webp");
+    // cameraOutput = cameraSensor.toDataURL("image/webp");
     // cameraOutput.classList.add("taken");
 
     // polyfil if needed https://github.com/blueimp/JavaScript-Canvas-to-Blob
     
     // https://developers.google.com/web/fundamentals/primers/promises
     // https://stackoverflow.com/questions/42458849/access-blob-value-outside-of-canvas-toblob-async-function
-    function getCanvasBlob(canvas) {
+    function getCanvasBlob(cameraSensor) {
         return new Promise(function(resolve, reject) {
-            canvas.toBlob(function(blob) { resolve(blob) }, 'image/jpeg');
+            cameraSensor.toBlob(function(blob) { resolve(blob) }, 'image/jpeg');
         })
     }
 
     // some API's (like Azure Custom Vision) need a blob with image data
-    getCanvasBlob(canvas).then(function(blob) {
+    getCanvasBlob(cameraSensor).then(function(blob) {
 
         // do something with the image blob
 
