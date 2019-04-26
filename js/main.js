@@ -198,7 +198,9 @@ function initCameraStream() {
 function takeSnapshot() {
     
     // if you'd like to show the canvas add it to the DOM
-    var canvas = document.createElement('canvas');
+    // var canvas = document.createElement('canvas');
+
+    const cameraSensor = document.querySelector("#camera--sensor")
 
     var width = video.videoWidth;
     var height = video.videoHeight;
