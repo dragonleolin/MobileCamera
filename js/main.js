@@ -13,6 +13,7 @@ var toggleFullScreenButton;
 var switchCameraButton;
 var amountOfCameras = 0;
 var currentFacingMode = 'environment';
+const cameraOutput = document.querySelector("#camera--output");
 
 document.addEventListener("DOMContentLoaded", function(event) {
 
@@ -207,6 +208,10 @@ function takeSnapshot() {
 
     context = canvas.getContext('2d');
     context.drawImage(video, 0, 0, width, height);
+
+    //take a picture 
+    cameraOutput.src = cameraSensor.toDataURL("image/webp");
+    cameraOutput.classList.add("taken");
 
     // polyfil if needed https://github.com/blueimp/JavaScript-Canvas-to-Blob
     
