@@ -198,10 +198,11 @@ function initCameraStream() {
 function takeSnapshot() {
     
     // if you'd like to show the canvas add it to the DOM
-    // var canvas = document.createElement('canvas');
+    var canvas = document.createElement('canvas');
+    document.canvas.appendChild(canvas);
 
     //存放照片的tag
-    const cameraSensor = document.querySelector("#camera--sensor")
+    // const cameraSensor = document.querySelector("#camera--sensor")
 
     var width = video.videoWidth;
     var height = video.videoHeight;
@@ -220,14 +221,14 @@ function takeSnapshot() {
     
     // https://developers.google.com/web/fundamentals/primers/promises
     // https://stackoverflow.com/questions/42458849/access-blob-value-outside-of-canvas-toblob-async-function
-    function getCanvasBlob(cameraSensor) {
+    function getCanvasBlob(canvas) {
         return new Promise(function(resolve, reject) {
-            cameraSensor.toBlob(function(blob) { resolve(blob) }, 'image/jpeg');
+            canvas.toBlob(function(blob) { resolve(blob) }, 'image/jpeg');
         })
     }
 
     // some API's (like Azure Custom Vision) need a blob with image data
-    getCanvasBlob(cameraSensor).then(function(blob) {
+    getCanvasBlob(canvas).then(function(blob) {
 
         // do something with the image blob
 
