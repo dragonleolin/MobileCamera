@@ -207,24 +207,25 @@ function takeSnapshot() {
     context = canvas.getContext('2d');
     context.drawImage(video, 0, 0, width, height);
 
-    //take a picture 
-    cameraOutput.src = cameraSensor.toDataURL("image/webp");
-    cameraOutput.classList.add("taken");
+
     
     // https://developers.google.com/web/fundamentals/primers/promises
     // https://stackoverflow.com/questions/42458849/access-blob-value-outside-of-canvas-toblob-async-function
-    // function getCanvasBlob(canvas) {
-    //     return new Promise(function(resolve, reject) {
-    //         canvas.toBlob(function(blob) { resolve(blob) }, 'image/jpeg');
-    //     })
-    // }
+    function getCanvasBlob(canvas) {
+        return new Promise(function(resolve, reject) {
+            canvas.toBlob(function(blob) { resolve(blob) }, 'image/jpeg');
+        })
+    }
 
     // some API's (like Azure Custom Vision) need a blob with image data
-    // getCanvasBlob(canvas).then(function(blob) {
+    getCanvasBlob(canvas).then(function(blob) {
 
-    //     // do something with the image blob
+        // do something with the image blob
+            //take a picture 
+    cameraOutput.src = cameraSensor.toDataURL("image/webp");
+    cameraOutput.classList.add("taken");
 
-    // });
+    });
 
 }
 
