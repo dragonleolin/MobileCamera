@@ -161,7 +161,7 @@ button {
 
 #camera--output{
     position: relative;
-    float: right;
+    /* float: right; */
     height: 100%;
     width: 100%;
     /* object-fit: cover; */
