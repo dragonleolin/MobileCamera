@@ -160,9 +160,9 @@ button {
 }
 
 #camera--output{
-    position: flex;
-    /* float: right; */
-    /* top: 10px; */
+    position: fixed;
+    float: right;
+    top: 10px;
     height: 100%;
     width: 100%;
     /* object-fit: cover; */
