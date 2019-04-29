@@ -17,14 +17,13 @@
     <div id="gui_controls">
         <button id="switchCameraButton" name="switch Camera" type="button" aria-pressed="false"></button>
         <button id="takePhotoButton" name="take Photo" type="button"></button>
-        <button id="toggleFullScreenButton" name="toggle FullScreen" type="button" aria-pressed="true">FullScreen</button>
+        <button id="toggleFullScreenButton" name="toggle FullScreen" type="button" aria-pressed="false">FullScreen</button>
             
-        <!-- Camera sensor -->
-        <canvas #canvas id="camera--sensor"></canvas>
         <!-- Camera output -->
         <img src="//:0" alt="" id="camera--output">
     </div>
-           
+        <!-- Camera sensor -->
+        <canvas #canvas id="camera--sensor"></canvas>
 
   </div> 
   <script src="js/DetectRTC.min.js"></script>
