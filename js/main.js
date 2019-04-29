@@ -58,7 +58,7 @@ function initCameraUI() {
     // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_button_role
 
     takePhotoButton.addEventListener("click", function() {
-        takeSnapshotUI();
+        // takeSnapshotUI();
         takeSnapshot();        
     });
 
@@ -204,28 +204,29 @@ function takeSnapshot() {
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
 
-    context = canvas.getContext('2d');
-    context.drawImage(video, 0, 0, width, height);
+    // context = canvas.getContext('2d');
+    // context.drawImage(video, 0, 0, width, height);
 
+    canvas.getContext("2d").drawImage(video, 0, 0);
 
+    //take a picture 
+    cameraOutput.src = canvas.toDataURL("image/webp");
+    cameraOutput.classList.add("taken");
     
     // https://developers.google.com/web/fundamentals/primers/promises
     // https://stackoverflow.com/questions/42458849/access-blob-value-outside-of-canvas-toblob-async-function
-    function getCanvasBlob(canvas) {
-        return new Promise(function(resolve, reject) {
-            canvas.toBlob(function(blob) { resolve(blob) }, 'image/jpeg');
-        })
-    }
+    // function getCanvasBlob(canvas) {
+    //     return new Promise(function(resolve, reject) {
+    //         canvas.toBlob(function(blob) { resolve(blob) }, 'image/jpeg');
+    //     })
+    // }
 
     // some API's (like Azure Custom Vision) need a blob with image data
-    getCanvasBlob(canvas).then(function(blob) {
+    // getCanvasBlob(canvas).then(function(blob) {
 
-        // do something with the image blob
-            //take a picture 
-    cameraOutput.src = cameraSensor.toDataURL("image/webp");
-    cameraOutput.classList.add("taken");
+    //     // do something with the image blob
 
-    });
+    // });
 
 }
 
