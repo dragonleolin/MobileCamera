@@ -230,8 +230,8 @@ function takeSnapshot() {
     canvas.getContext("2d").drawImage(video, 0, 0);
 
     //take a picture 
-    cameraOutput.src = canvas.toDataURL("image/webp");
-    cameraOutput.classList.add("taken");
+    cameraOutput.src = canvas.toDataURL("image/jpeg");
+    // cameraOutput.classList.add("taken");
 }
 
 // https://hackernoon.com/how-to-use-javascript-closures-with-confidence-85cd1f841a6b
