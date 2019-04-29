@@ -123,12 +123,12 @@ button {
         top: calc(50% - 32px);
     }
     
-    /* #camera--output{
+    #camera--output{
         position: fixed;
         height: 100%;
         width: 100%;
         object-fit: cover;
-    } */
+    }
 }
 
 @media screen and (orientation:landscape) {
@@ -162,26 +162,26 @@ button {
     #toggleFullScreenButton {
         left: calc(50% - 32px);
         top: calc(82% - 32px);
-    /* }
+    }
     #camera--output{
         position: fixed;
         height: 100%;
         width: 100%;
         object-fit: cover;
-    } */
+    }
 
 }
 
-/* #camera--output{
+#camera--output{
     position: fixed;
     height: 100%;
     width: 100%;
     object-fit: cover;
     /* transform: scaleX(-1);
     filter: FlipH; */
-} */
+}
 
-.taken{
+/* .taken{
     height: 100px!important;
     width: 100px!important;
     transition: all 0.5s ease-in;
@@ -190,4 +190,4 @@ button {
     top: 20px;
     right: 20px;
     z-index: 2;
-}
+} */
