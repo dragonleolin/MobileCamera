@@ -20,9 +20,11 @@
         <!-- <button id="toggleFullScreenButton" name="toggle FullScreen" type="button" aria-pressed="false">FullScreen</button> -->
     </div>
             <!-- Camera sensor -->
-            <canvas #canvas id="camera--sensor"></canvas>
+            <canvas #canvas id="camera--sensor">
+                <img src="//:0" alt="" id="camera--output">
+            </canvas>
             <!-- Camera output -->
-            <img src="//:0" alt="" id="camera--output">
+            
   </div> 
   <script src="js/DetectRTC.min.js"></script>
   <script src="js/adapter.min.js"></script>  
