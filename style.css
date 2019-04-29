@@ -159,7 +159,7 @@ button {
 
 } 
 
-.taken{
+/* .taken{
     height: 100px!important;
     width: 100px!important;
     transition: all 0.5s ease-in;
@@ -168,4 +168,4 @@ button {
     top: 20px;
     right: 20px;
     z-index: 2;
-}
+} */
