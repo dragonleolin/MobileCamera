@@ -189,43 +189,42 @@ function initCameraStream() {
 }
 
 function takeSnapshot() {
-    
-    // if you'd like to show the canvas add it to the DOM
-    var canvas = document.createElement('canvas');
-
-    //存放照片的tag
-    const cameraSensor = document.querySelector("#camera--sensor");
+    const video = document.querySelector("#video")
+    const canvas = document.querySelector("#camera--sensor");
     const cameraOutput = document.querySelector("#camera--output");
 
-    var width = video.videoWidth;
-    var height = video.videoHeight;
+    // if you'd like to show the canvas add it to the DOM
+    // var canvas = document.createElement('canvas');
 
-    canvas.width = width;
-    canvas.height = height;
+    // var width = video.videoWidth;
+    // var height = video.videoHeight;
+    // canvas.width = width;
+    // canvas.height = height;
+
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
 
     context = canvas.getContext('2d');
     context.drawImage(video, 0, 0, width, height);
 
     //take a picture 
-    // cameraOutput.src = cameraSensor.toDataURL("image/webp");
-    // cameraOutput.classList.add("taken");
-
-    // polyfil if needed https://github.com/blueimp/JavaScript-Canvas-to-Blob
+    cameraOutput.src = cameraSensor.toDataURL("image/webp");
+    cameraOutput.classList.add("taken");
     
     // https://developers.google.com/web/fundamentals/primers/promises
     // https://stackoverflow.com/questions/42458849/access-blob-value-outside-of-canvas-toblob-async-function
-    function getCanvasBlob(canvas) {
-        return new Promise(function(resolve, reject) {
-            canvas.toBlob(function(blob) { resolve(blob) }, 'image/jpeg');
-        })
-    }
+    // function getCanvasBlob(canvas) {
+    //     return new Promise(function(resolve, reject) {
+    //         canvas.toBlob(function(blob) { resolve(blob) }, 'image/jpeg');
+    //     })
+    // }
 
     // some API's (like Azure Custom Vision) need a blob with image data
-    getCanvasBlob(canvas).then(function(blob) {
+    // getCanvasBlob(canvas).then(function(blob) {
 
-        // do something with the image blob
+    //     // do something with the image blob
 
-    });
+    // });
 
 }
 
