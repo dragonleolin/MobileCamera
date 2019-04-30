@@ -159,7 +159,10 @@ button {
     }
 
     #camera--output{ 
+        position: fixed;
         float: left;
+        top: 30px;
+        left: 30px;
         height: 100%;
         width: 100%;
         /* transform: scaleX(-1);
