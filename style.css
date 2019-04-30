@@ -123,15 +123,6 @@ button {
         top: calc(50% - 32px);
     }
 
-    #camera--output{
-        position: relative;
-        float: left;
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        /* transform: scaleX(-1);
-        filter: FlipH; */
-    }
 }
 
 @media screen and (orientation:landscape) {
@@ -167,12 +158,10 @@ button {
         top: calc(82% - 32px);
     }
 
-    #camera--output{        
-        position: relative;
+    #camera--output{ 
         float: left;
         height: 100%;
         width: 100%;
-        object-fit: cover;
         /* transform: scaleX(-1);
         filter: FlipH; */
     }
@@ -180,7 +169,7 @@ button {
 }
 
 #camera--output{
-    position: fixed;
+    position: relative;
     height: 100%;
     width: 100%;
     object-fit: cover;
