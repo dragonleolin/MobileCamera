@@ -83,7 +83,7 @@ button {
     background-color: #fff;
 }
 
-#toggleFullScreenButton {
+#upload {
     display: none;
     width: 64px;
     height: 64px;
@@ -92,7 +92,7 @@ button {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-#toggleFullScreenButton[aria-pressed="true"] {
+#upload[aria-pressed="true"] {
     background-image: url('img/ic_fullscreen_exit_white_48px.svg');
 }
 
@@ -131,7 +131,7 @@ button {
         top: calc(50% - 32px);
     }
 
-    #toggleFullScreenButton { 
+    #upload { 
         left: calc(80% - 32px);
         top: calc(50% - 32px);
     }
@@ -166,7 +166,7 @@ button {
         top: calc(18% - 32px);
     }
 
-    #toggleFullScreenButton {
+    #upload {
         left: calc(50% - 32px);
         top: calc(82% - 32px);
     }
@@ -177,7 +177,7 @@ button {
     position: fixed;
     height: 100%;
     width: 100%;
-    /* object-fit: cover; */
+    object-fit: cover;
     /* transform: scaleX(-1);
     filter: FlipH; */
 }
@@ -188,7 +188,7 @@ button {
     transition: all 0.5s ease-in;
     border: solid 3px white;
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
-    top: 50px;
-    right: 30px;
+    top: 20px;
+    right: 20px;
     z-index: 2;
 }
