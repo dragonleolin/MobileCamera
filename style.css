@@ -173,7 +173,7 @@ button {
 
 #camera--output{
     position: fixed;
-    margin-top: 30;
+    margin-top: 30%;
     /* top: 0; */
     left: 0;
     height: 100%;
