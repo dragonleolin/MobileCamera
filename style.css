@@ -83,7 +83,7 @@ button {
     background-color: #fff;
 }
 
-#upload {
+#toggleFullScreenButton {
     display: none;
     width: 64px;
     height: 64px;
@@ -92,7 +92,7 @@ button {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-#upload[aria-pressed="true"] {
+#toggleFullScreenButton[aria-pressed="true"] {
     background-image: url('img/ic_fullscreen_exit_white_48px.svg');
 }
 
@@ -131,7 +131,7 @@ button {
         top: calc(50% - 32px);
     }
 
-    #upload { 
+    #toggleFullScreenButton { 
         left: calc(80% - 32px);
         top: calc(50% - 32px);
     }
@@ -166,7 +166,7 @@ button {
         top: calc(18% - 32px);
     }
 
-    #upload {
+    #toggleFullScreenButton {
         left: calc(50% - 32px);
         top: calc(82% - 32px);
     }
@@ -175,8 +175,9 @@ button {
 
 #camera--output{
     position: fixed;
-    top:30px;
-    left: 20px;
+    border-color: black;
+    top: 60px;
+    left:20px;
     height: 100%;
     width: 100%;
     /* object-fit: cover; */
