@@ -21,9 +21,10 @@ body {
     text-align: center;
     color: blue;
     width: 100%; 
-    background-color: rgba(255, 255, 255, .8);
+    background-color: rgba(255, 255, 255, 0.0);
+    /* opacity: 0.0; */
     object-fit: cover; 
-    z-index: 2;
+    z-index: 3;
 
 }    
 
@@ -134,17 +135,6 @@ button {
         top: calc(50% - 32px);
     }
 
-    #title {
-        position: fixed;
-        text-align: center;
-        color: blue;
-        width: 100%; 
-        background-color: rgba(255, 255, 255, .8);
-        object-fit: cover; 
-        z-index: 2;
-    
-    }   
-
 }
 
 @media screen and (orientation:landscape) {
@@ -179,17 +169,6 @@ button {
         left: calc(50% - 32px);
         top: calc(82% - 32px);
     }
-
-    #title {
-        position: fixed;
-        text-align: center;
-        color: blue;
-        width: 100%; 
-        background-color: rgba(255, 255, 255, .8);
-        object-fit: cover; 
-        z-index: 2;
-    
-    }   
 
 }
 
