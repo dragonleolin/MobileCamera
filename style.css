@@ -175,7 +175,6 @@ button {
 
 #camera--output{
     position: fixed;
-    border-color: black;
     top: 60px;
     left:20px;
     height: 100%;
