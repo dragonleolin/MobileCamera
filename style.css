@@ -21,7 +21,7 @@ body {
     text-align: center;
     color: blue;
     width: 100%; 
-    opacity: 0.0;
+    background-color: "opacity=0.0";
     z-index: 2;
 
 }    
