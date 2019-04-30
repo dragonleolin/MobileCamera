@@ -173,8 +173,8 @@ button {
 
 #camera--output{
     position: fixed;
-    /* top: 60px;
-    left:20px; */
+    /* top: 60px; */
+    left:20px;
     height: 100%;
     width: 100%;
     /* object-fit: cover; */
