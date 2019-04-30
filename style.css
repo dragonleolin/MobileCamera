@@ -83,7 +83,7 @@ button {
     background-color: #fff;
 }
 
-#upload {
+#uploadImage {
     display: none;
     width: 64px;
     height: 64px;
@@ -129,7 +129,7 @@ button {
         top: calc(50% - 32px);
     }
 
-    #upload { 
+    #uploadImage { 
         left: calc(80% - 32px);
         top: calc(50% - 32px);
     }
@@ -164,7 +164,7 @@ button {
         top: calc(18% - 32px);
     }
 
-    #upload {
+    #uploadImage {
         left: calc(50% - 32px);
         top: calc(82% - 32px);
     }
