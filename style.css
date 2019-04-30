@@ -16,12 +16,13 @@ body {
     z-index: 0; 
 } 
 
-#title {
+#vid_container #title {
     position: fixed;
     text-align: center;
     color: blue;
     width: 100%; 
-    background-color: white;
+    background-color: "opacity=0.0";
+    object-fit: cover; 
     z-index: 2;
 
 }    
