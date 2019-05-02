@@ -68,6 +68,9 @@ button {
     pointer-events: auto;
     z-index: 2;
 }
+option {
+   background-color: black; 
+}
 
 #takePhotoButton {
     left: calc(50% - 40px);
@@ -83,7 +86,7 @@ button {
     background-color: #fff;
 }
 
-#uploadImage {
+#uploadImage{
     text-align: center;
     margin-bottom: 20px;
     color: white;
@@ -94,9 +97,22 @@ button {
 }
 
 #factoryName {
-    font-size: 16px;
-    background-color: black;
-    color: white;
+    text-align: center;
+    margin-bottom: 70px;
+    color:white;
+    width: 50px;
+    height: 30px;
+    outline: none;
+    position: absolute;
+    display: block;
+    opacity: 1;
+    background: transparent;
+    border: solid 2px #fff;
+    padding: 0;
+    text-shadow: 0px 0px 4px black;
+    background-repeat: no-repeat;
+    pointer-events: auto;
+    z-index: 2;
 }
 
 
@@ -140,7 +156,12 @@ button {
 
     #uploadImage { 
         left: calc(80% - 32px);
-        top: calc(50% - 32px);
+        top: calc(50% - 22px);
+    }
+
+    #factoryName {
+        left: calc(80% - 25px);
+        top: calc(40% - 42px);
     }
 
 }
@@ -175,7 +196,12 @@ button {
 
     #uploadImage {
         left: calc(50% - 32px);
-        top: calc(82% - 32px);
+        top: calc(82% - 52px);
+    }
+
+    #factoryName {
+        left: calc(50% - 32px);
+        top: calc(82% - 22px);
     }
 
 }

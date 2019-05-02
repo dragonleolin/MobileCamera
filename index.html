@@ -17,24 +17,24 @@
         
         <!-- Camera output src="//:1"-->
         <img  alt="" id="camera--output">
+        <!-- Camera sensor -->
+        <canvas #canvas id="camera--sensor"></canvas>
     </div>
 
 
     <div id="gui_controls">
         <button id="switchCameraButton" name="switch Camera" type="button" aria-pressed="false"></button>
         <button id="takePhotoButton" name="take Photo" type="button"></button>
-        <button id="uploadImage" name="upload" type="button">
+        <button id="uploadImage" name="upload" type="button">UPLOAD</button>
           <select name="" id="factoryName">
             　<option value="RAY">RAY</option>
 　            <option value="ECL">ECL</option>
             　<option value="JOT">JOT</option>
             　<option value="RTF">RTF</option>
-          </select>
-        </button>
+          </select> 
     </div>
 
-        <!-- Camera sensor -->
-        <canvas #canvas id="camera--sensor"></canvas>
+
 
   </div> 
   <script src="js/DetectRTC.min.js"></script>
