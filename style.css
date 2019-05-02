@@ -181,9 +181,9 @@ button {
 }
 
 #camera--output > img{
-    position: fixed;
+    /* position: fixed; */
     float: left;
-    margin-top: 45px;
+    /* margin-top: 45px; */
     top: 0;
     left: 0;
     height: 100%;
