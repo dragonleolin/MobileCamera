@@ -84,12 +84,18 @@ button {
 }
 
 #uploadImage {
-    display: none;
+    /* display: none;
     width: 64px;
     height: 64px;
-    /* background-image: url('img/ic_fullscreen_white_48px.svg'); */
+    background-image: url('img/ic_fullscreen_white_48px.svg');
     border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5); */
+
+    position: fixed;
+    font-size: 48px;
+    text-align: right;
+    color: white;
+    width: 100%; 
 }
 
 
@@ -173,7 +179,7 @@ button {
 
 #camera--output{
     position: fixed;
-    margin-top: 30px;
+    margin-top: 60px;
     top: 0;
     left: 0;
     height: 100%;
