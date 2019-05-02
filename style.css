@@ -13,8 +13,6 @@ body {
     width: 100%; 
     height: 100%;
     object-fit: cover; 
-    transform: scaleX(-1);
-    filter: FlipH;
     z-index: 0; 
 } 
 
@@ -183,16 +181,16 @@ button {
 }
 
 #camera--output{
-    display: block;
+    /* display: block; */
     position: fixed;
-    margin-top: 50px;
+    margin-top: 52px;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
     object-fit: cover;
-    transform: scaleX(-1);
-    filter: FlipH;
+    /* transform: scaleX(-1);
+    filter: FlipH; */
 }
 
 .taken{
