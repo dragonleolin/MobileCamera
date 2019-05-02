@@ -83,9 +83,7 @@ button {
     background-color: #fff;
 }
 
-/* #uploadImage {
-
-    font-size: 12px;
+#uploadImage {
     text-align: center;
     margin-bottom: 20px;
     color: white;
@@ -93,27 +91,15 @@ button {
     height: 64px;
     border-radius: 50%;
 
-} */
+}
 
 #factoryName {
-    /* display: none;
-    width: 64px;
-    height: 64px;
-    background-image: url('img/ic_fullscreen_white_48px.svg');
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.5); */
-
-    font-size: 12px;
-    text-align: center;
-    margin-bottom: 20px;
-    
-    color: black;
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    
-
+    font-size: 16px;
+    background-color: black;
+    color: white;
 }
+
+
 
 
 
