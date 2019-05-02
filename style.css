@@ -87,7 +87,7 @@ button {
     display: none;
     width: 64px;
     height: 64px;
-    background-image: url('img/ic_fullscreen_white_48px.svg');
+    /* background-image: url('img/ic_fullscreen_white_48px.svg'); */
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.5);
 }
