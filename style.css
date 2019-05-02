@@ -79,9 +79,9 @@ button {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* #takePhotoButton:active {
+#takePhotoButton:active {
     background-color: #fff;
-} */
+}
 
 #uploadImage {
     /* display: none;
@@ -181,9 +181,10 @@ button {
 }
 
 #camera--output{
-    display: flex;
-    position: fixed;
-    margin-top: 50px;
+    /* display: block; */
+    position: block;
+    float: center;
+    margin-top: 45px;
     top: 0;
     left: 0;
     height: 100%;
@@ -194,7 +195,6 @@ button {
 }
 
 .taken{
-    /* display: block; */
     height: 100px !important;
     width: 100px !important;
     transition: all 0.5s ease-in;
