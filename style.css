@@ -180,15 +180,14 @@ button {
 
 }
 
-#camera--output > img{
+#camera--output{
+    /* display: block; */
     position: fixed;
-    /* float: left; */
-    margin-top: 45px;
+    margin-top: 48px;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
-    display: block; 
     /* object-fit: cover; */
     /* transform: scaleX(-1);
     filter: FlipH; */
