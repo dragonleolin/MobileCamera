@@ -181,13 +181,14 @@ button {
 }
 
 #camera--output > img{
-    /* position: fixed; */
-    float: left;
-    /* margin-top: 45px; */
+    position: fixed;
+    /* float: left; */
+    margin-top: 45px;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
+    display: block; 
     /* object-fit: cover; */
     /* transform: scaleX(-1);
     filter: FlipH; */
