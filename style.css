@@ -70,6 +70,7 @@ button {
 }
 option {
    background-color: black; 
+   text-align: center;
 }
 
 #takePhotoButton {
@@ -200,8 +201,8 @@ option {
     }
 
     #factoryName {
-        left: calc(50% - 32px);
-        top: calc(82% - 22px);
+        left: calc(50% - 25px);
+        top: calc(82% - 78px);
     }
 
 }
