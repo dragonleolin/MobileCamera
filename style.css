@@ -183,7 +183,7 @@ button {
 #camera--output{
     display: block;
     position: fixed;
-    margin-top: 60px;
+    margin-top: 55px;
     top: 0;
     left: 0;
     height: 100%;
@@ -194,6 +194,7 @@ button {
 }
 
 .taken{
+    display: block;
     height: 100px !important;
     width: 100px !important;
     transition: all 0.5s ease-in;
