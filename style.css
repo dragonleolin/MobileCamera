@@ -180,10 +180,9 @@ button {
 
 }
 
-#camera--output{
-    /* display: block; */
-    position: block;
-    float: center;
+#camera--output > img{
+    position: fixed;
+    float: left;
     margin-top: 45px;
     top: 0;
     left: 0;
