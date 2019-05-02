@@ -182,8 +182,9 @@ button {
 
 #camera--output{
     /* display: block; */
+    background-color: rgba(255, 255, 255, 0.0);
     position: fixed;
-    margin-top: 52px;
+    margin-top: 65px;
     top: 0;
     left: 0;
     height: 100%;
