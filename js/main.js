@@ -236,10 +236,7 @@ function takeSnapshot() {
 
     //take a picture 
     cameraOutput.src = canvas.toDataURL("image/jpeg");
-    const image = cameraOutput.src;
     cameraOutput.classList.add("taken");
-
-    return image;
 }
 
 function uploadFile() {
