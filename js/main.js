@@ -53,6 +53,7 @@ function initCameraUI() {
     takePhotoButton = document.getElementById('takePhotoButton');
     toggleFullScreenButton = document.getElementById('toggleFullScreenButton');
     switchCameraButton = document.getElementById('switchCameraButton');
+    uploadImage = document.getElementById('uploadImage');
     
     // https://developer.mozilla.org/nl/docs/Web/HTML/Element/button
     // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_button_role
@@ -60,6 +61,10 @@ function initCameraUI() {
     takePhotoButton.addEventListener("click", function() {
         // takeSnapshotUI();
         takeSnapshot();        
+    });
+
+    uploadImage.addEventListener("click", function() {
+        uploadFile();
     });
 
     // -- fullscreen part
@@ -230,8 +235,15 @@ function takeSnapshot() {
     canvas.getContext("2d").drawImage(video, 0, 0);
 
     //take a picture 
-    cameraOutput.src = canvas.toDataURL("image/jpeg");
+    const image = cameraOutput.src ;
+    image = canvas.toDataURL("image/jpeg");
     cameraOutput.classList.add("taken");
+
+    return image;
+}
+
+function uploadFile() {
+    
 }
 
 // https://hackernoon.com/how-to-use-javascript-closures-with-confidence-85cd1f841a6b

@@ -201,7 +201,7 @@ option {
     }
 
     #factoryName {
-        left: calc(50% - 25px);
+        left: calc(50% - 30px);
         top: calc(90% - 10px);
     }
 
