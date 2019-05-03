@@ -64,7 +64,10 @@ function initCameraUI() {
     });
 
     uploadImage.addEventListener("click", function() {
-        uploadFile();
+        uploadFile(filename);
+
+        // 下载后的文件名规则
+        var filename = (new Date()).getTime() + '.' + type;
     });
 
     // -- fullscreen part
@@ -237,9 +240,32 @@ function takeSnapshot() {
     //take a picture 
     cameraOutput.src = canvas.toDataURL("image/jpeg");
     cameraOutput.classList.add("taken");
+
+    //保存canvas標籤裡的圖片並且按規則重新命名
+    var type = 'png';
+   
+    var _fixType = function(type) {
+       type = type.toLowerCase().replace(/jpg/i, 'jpeg');
+       var r = type.match(/png|jpeg|bmp|gif/)[0];
+       return 'image/' + r;
+   };
 }
 
-function uploadFile() {
+function uploadFile(filename) {
+        const image =  this.cameraOutput.src;
+
+        //获取canvas标签里的图片内容
+        var imgData = document.getElementById('canvas').toDataURL(type);
+        imgData = imgData.replace(_fixType(type),'image/octet-stream');
+        
+        var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+        save_link.href = imgData;
+        save_link.download = filename;
+       
+        var event = document.createEvent('MouseEvents');
+        event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        save_link.dispatchEvent(event);
+
     
 }
 
