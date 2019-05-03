@@ -258,7 +258,7 @@ function uploadFile(filename) {
         var imgData = document.getElementById('canvas').toDataURL(type);
         imgData = imgData.replace(_fixType(type),'image/octet-stream');
         
-        var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+        var save_link = document.createElementNS('http://localhost:8080', 'a');
         save_link.href = imgData;
         save_link.download = filename;
        
