@@ -53,7 +53,7 @@ body {
 /*  Button style from: 
     https://googlesamples.github.io/web-fundamentals/fundamentals/media/mobile-web-video-playback.html */
 
-button {
+button, input {
     outline: none;
     position: absolute;
     color: white;
@@ -68,6 +68,8 @@ button {
     pointer-events: auto;
     z-index: 2;
 }
+
+
 option {
    background-color: black; 
    text-align: center;

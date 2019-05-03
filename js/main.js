@@ -235,8 +235,8 @@ function takeSnapshot() {
     canvas.getContext("2d").drawImage(video, 0, 0);
 
     //take a picture 
-    const image = cameraOutput.src ;
-    image = canvas.toDataURL("image/jpeg");
+    cameraOutput.src = canvas.toDataURL("image/jpeg");
+    const image = cameraOutput.src;
     cameraOutput.classList.add("taken");
 
     return image;
