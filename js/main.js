@@ -252,81 +252,69 @@ function takeSnapshot() {
    };
 }
 
-function uploadFile(filename) {
-        // const image =  this.cameraOutput.src;
-        // //获取canvas标签里的图片内容
-        // var imgData = document.getElementById('canvas').toDataURL(type);
-        // imgData = imgData.replace(_fixType(type),'image/octet-stream');
-        
-        // var save_link = document.createElementNS('http://localhost:8080', 'a');
-        // save_link.href = imgData;
-        // save_link.download = filename;
-        
-       
-        // var event = document.createEvent('MouseEvents');
-        // event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-        // save_link.dispatchEvent(event);
+function uploadFile() {
+        // var reader = new FileReader();
+        // var fileSize = Math.round( this.files[0].size/1024/1024) ; //以M為單位
+        // var res = reader.readAsDataURL(this.files[0]);
+        // //this.files[0] 該資訊包含：圖片的大小，以byte計算 獲取size的方法如下：this.files[0].size;
+        // console.log(this.files[0]);
+        // reader.onload = function (e) {
+        // // 呼叫圖片壓縮方法：
+        // compress(res, fileSize);
+        // };
+        var uploadImage = document.querySelector('#uploadImage');
 
-        var reader = new FileReader();
-        var fileSize = Math.round( this.files[0].size/1024/1024) ; //以M為單位
-        var res = reader.readAsDataURL(this.files[0]);
-        //this.files[0] 該資訊包含：圖片的大小，以byte計算 獲取size的方法如下：this.files[0].size;
-        console.log(this.files[0]);
-        reader.onload = function (e) {
-        // 呼叫圖片壓縮方法：
-        compress(res, fileSize);
-        };
 
     
 }
-    function compress(res,fileSize) { //res代表上傳的圖片，fileSize大小圖片的大小
-        // const video = document.querySelector("#video")
-        // const canvas = document.querySelector("#camera--sensor");
-        // const cameraOutput = document.querySelector("#camera--output");
+    // function compress(res,fileSize) { //res代表上傳的圖片，fileSize大小圖片的大小
+    //     // const video = document.querySelector("#video")
+    //     // const canvas = document.querySelector("#camera--sensor");
+    //     // const cameraOutput = document.querySelector("#camera--output");
     
         
-        // canvas.width = video.videoWidth;
-        // canvas.height = video.videoHeight;
-        // canvas.getContext("2d").drawImage(video, 0, 0);
+    //     // canvas.width = video.videoWidth;
+    //     // canvas.height = video.videoHeight;
+    //     // canvas.getContext("2d").drawImage(video, 0, 0);
     
-        // //take a picture 
-        // cameraOutput.src = canvas.toDataURL("image/jpeg");
+    //     // //take a picture 
+    //     // cameraOutput.src = canvas.toDataURL("image/jpeg");
 
-        var img = new Image(),
-        maxW = 640; //設定最大寬度
-        img.onload = function () {
-        var cvs = document.querySelector('canvas'),
-        ctx = cvs.getContext( '2d');
-        if(img.width > maxW) {
-        img.height *= maxW / img.width;
-        img.width = maxW;
-        }
-        cvs.width = img.width;
-        cvs.height = img.height;
-        ctx.clearRect(0, 0, cvs.width, cvs.height);
-        ctx.drawImage(img, 0, 0, img.width, img.height);
-        var compressRate = getCompressRate(1,fileSize);
-        var dataUrl = cvs.toDataURL( 'image/jpeg', compressRate);
-        document.body.appendChild(cvs);
-        console.log(dataUrl);
-        }
-        img.src = res;
-        }
-        function getCompressRate(allowMaxSize,fileSize){ //計算壓縮比率，size單位為MB
-        var compressRate = 1;
-        if(fileSize/allowMaxSize > 4){
-        compressRate = 0.5;
-        } else if(fileSize/allowMaxSize >3){
-        compressRate = 0.6;
-        } else if(fileSize/allowMaxSize >2){
-        compressRate = 0.7;
-        } else if(fileSize > allowMaxSize){
-        compressRate = 0.8;
-        } else{
-        compressRate = 0.9;
-        }
-        return compressRate;
-        }
+    //     var img = new Image(),
+    //     maxW = 640; //設定最大寬度
+    //     img.onload = function () {
+    //     var cvs = document.querySelector('canvas'),
+    //     ctx = cvs.getContext( '2d');
+    //     if(img.width > maxW) {
+    //     img.height *= maxW / img.width;
+    //     img.width = maxW;
+    //     }
+    //     cvs.width = img.width;
+    //     cvs.height = img.height;
+    //     ctx.clearRect(0, 0, cvs.width, cvs.height);
+    //     ctx.drawImage(img, 0, 0, img.width, img.height);
+    //     var compressRate = getCompressRate(1,fileSize);
+    //     var dataUrl = cvs.toDataURL( 'image/jpeg', compressRate);
+    //     document.body.appendChild(cvs);
+    //     console.log(dataUrl);
+    //     }
+    //     img.src = res;
+    //     }
+    //     function getCompressRate(allowMaxSize,fileSize){ //計算壓縮比率，size單位為MB
+    //     var compressRate = 1;
+    //     if(fileSize/allowMaxSize > 4){
+    //     compressRate = 0.5;
+    //     } else if(fileSize/allowMaxSize >3){
+    //     compressRate = 0.6;
+    //     } else if(fileSize/allowMaxSize >2){
+    //     compressRate = 0.7;
+    //     } else if(fileSize > allowMaxSize){
+    //     compressRate = 0.8;
+    //     } else{
+    //     compressRate = 0.9;
+    //     }
+    //     return compressRate;
+    //     }
 
 
 // https://hackernoon.com/how-to-use-javascript-closures-with-confidence-85cd1f841a6b
