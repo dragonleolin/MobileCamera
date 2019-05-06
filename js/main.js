@@ -241,6 +241,7 @@ function takeSnapshot() {
     cameraOutput.src = canvas.toDataURL("image/jpeg");
     cameraOutput.classList.add("taken");
 
+
     //保存canvas標籤裡的圖片並且按規則重新命名
     var type = 'png';
    
@@ -267,21 +268,34 @@ function uploadFile(filename) {
         // save_link.dispatchEvent(event);
 
         var reader = new FileReader();
+        var fileSize = Math.round( this.files[0].size/1024/1024) ; //以M為單位
+        var res = reader.readAsDataURL(this.files[0]);
+        //this.files[0] 該資訊包含：圖片的大小，以byte計算 獲取size的方法如下：this.files[0].size;
+        console.log(this.files[0]);
         reader.onload = function (e) {
         // 呼叫圖片壓縮方法：
-        compress();
+        compress(res, fileSize);
         };
-        reader.readAsDataURL(this.files[0]);
-        console.log(this.files[0]);
-        var fileSize = Math.round( this.files[0].size/1024/1024) ; //以M為單位
-        //this.files[0] 該資訊包含：圖片的大小，以byte計算 獲取size的方法如下：this.files[0].size;
+
     
 }
     function compress(res,fileSize) { //res代表上傳的圖片，fileSize大小圖片的大小
+        // const video = document.querySelector("#video")
+        // const canvas = document.querySelector("#camera--sensor");
+        // const cameraOutput = document.querySelector("#camera--output");
+    
+        
+        // canvas.width = video.videoWidth;
+        // canvas.height = video.videoHeight;
+        // canvas.getContext("2d").drawImage(video, 0, 0);
+    
+        // //take a picture 
+        // cameraOutput.src = canvas.toDataURL("image/jpeg");
+
         var img = new Image(),
         maxW = 640; //設定最大寬度
         img.onload = function () {
-        var cvs = document.createElement( 'canvas'),
+        var cvs = document.createElement('canvas'),
         ctx = cvs.getContext( '2d');
         if(img.width > maxW) {
         img.height *= maxW / img.width;
