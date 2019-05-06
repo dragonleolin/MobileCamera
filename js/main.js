@@ -295,7 +295,7 @@ function uploadFile(filename) {
         var img = new Image(),
         maxW = 640; //設定最大寬度
         img.onload = function () {
-        var cvs = document.createElement('canvas'),
+        var cvs = document.querySelector('canvas'),
         ctx = cvs.getContext( '2d');
         if(img.width > maxW) {
         img.height *= maxW / img.width;
