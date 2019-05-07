@@ -231,8 +231,8 @@ function initCameraStream() {
 function takeSnapshot() {
     const video = document.querySelector("#video")
     // const canvas = document.querySelector("#camera--sensor");
-    const canvas = document.createElement('canvas')
-    // const canvas = document.getElementById('camera--sensor')
+    // const canvas = document.createElement('canvas')
+    const canvas = document.getElementById('camera--sensor')
     const cameraOutput = document.querySelector("#camera--output");
 
     
