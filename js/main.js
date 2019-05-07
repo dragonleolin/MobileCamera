@@ -196,62 +196,64 @@ function initCameraStream() {
 
 }
 
-// function takeSnapshot() {
-//     // if you'd like to show the canvas add it to the DOM
-//     var canvas = document.createElement('canvas');
-
-//     var width = video.videoWidth;
-//     var height = video.videoHeight;
-//     canvas.width = width;
-//     canvas.height = height;
-
-//     context = canvas.getContext('2d');
-//     context.drawImage(video, 0, 0, width, height);
-
-//     canvas.getContext("2d").drawImage(video, 0, 0);
-    
-//     // https://developers.google.com/web/fundamentals/primers/promises
-//     // https://stackoverflow.com/questions/42458849/access-blob-value-outside-of-canvas-toblob-async-function
-//     function getCanvasBlob(canvas) {
-//         return new Promise(function(resolve, reject) {
-//             canvas.toBlob(function(blob) { resolve(blob) }, 'image/jpeg');
-//         })
-//     }
-
-//     // some API's (like Azure Custom Vision) need a blob with image data
-//     getCanvasBlob(canvas).then(function(blob) {
-
-//         // do something with the image blob
-
-//     });
-
-// }
-
 function takeSnapshot() {
-    const video = document.querySelector("#video")
-    // const canvas = document.querySelector("#camera--sensor");
-    const canvas = document.createElement('canvas')
-    const cameraOutput = document.querySelector("#camera--output");
+    // if you'd like to show the canvas add it to the DOM
+    var canvas = document.createElement('canvas');
+
+    var width = video.videoWidth;
+    var height = video.videoHeight;
+    canvas.width = width;
+    canvas.height = height;
+
+    context = canvas.getContext('2d');
+    context.drawImage(video, 0, 0, width, height);
+
+    canvas.getContext("2d").drawImage(video, 0, 0);
+    document.body.appendChild(canvas)
+    
+    // https://developers.google.com/web/fundamentals/primers/promises
+    // https://stackoverflow.com/questions/42458849/access-blob-value-outside-of-canvas-toblob-async-function
+    function getCanvasBlob(canvas) {
+        return new Promise(function(resolve, reject) {
+            canvas.toBlob(function(blob) { resolve(blob) }, 'image/jpeg');
+        })
+    }
+
+    // some API's (like Azure Custom Vision) need a blob with image data
+    getCanvasBlob(canvas).then(function(blob) {
+
+        // do something with the image blob
+
+    });
+
+}
+
+// function takeSnapshot() {
+//     const video = document.querySelector("#video")
+//     // const canvas = document.querySelector("#camera--sensor");
+//     // const canvas = document.createElement('canvas')
+//     const canvas = document.getElementById('camera--sensor')
+//     const cameraOutput = document.querySelector("#camera--output");
 
     
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    canvas.getContext("2d").drawImage(video, 0, 0);
+//     canvas.width = video.videoWidth;
+//     canvas.height = video.videoHeight;
+//     canvas.getContext("2d").drawImage(video, 0, 0);
 
-    //take a picture 
-    cameraOutput.src = canvas.toDataURL("image/jpeg");
-    cameraOutput.classList.add("taken");
+//     //take a picture 
+//     cameraOutput.src = canvas.toDataURL("image/jpeg");
+//     cameraOutput.classList.add("taken");
+    
 
-
-    //保存canvas標籤裡的圖片並且按規則重新命名
-    var type = 'png';
+//     //保存canvas標籤裡的圖片並且按規則重新命名
+//     var type = 'png';
    
-    var _fixType = function(type) {
-       type = type.toLowerCase().replace(/jpg/i, 'jpeg');
-       var r = type.match(/png|jpeg|bmp|gif/)[0];
-       return 'image/' + r;
-   };
-}
+//     var _fixType = function(type) {
+//        type = type.toLowerCase().replace(/jpg/i, 'jpeg');
+//        var r = type.match(/png|jpeg|bmp|gif/)[0];
+//        return 'image/' + r;
+//    };
+// }
 
 function uploadFile() {
         // var reader = new FileReader();
