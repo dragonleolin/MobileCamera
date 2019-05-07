@@ -230,9 +230,9 @@ function initCameraStream() {
 
 function takeSnapshot() {
     const video = document.querySelector("#video")
-    // const canvas = document.querySelector("#camera--sensor");
+    const canvas = document.querySelector("#camera--sensor");
     // const canvas = document.createElement('canvas')
-    const canvas = document.getElementById('camera--sensor')
+    // const canvas = document.getElementById('camera--sensor')
     const cameraOutput = document.querySelector("#camera--output");
 
     
@@ -241,11 +241,11 @@ function takeSnapshot() {
     canvas.getContext("2d").drawImage(video, 0, 0);
 
     //take a picture 
-    cameraOutput.src = canvas.toDataURL("image/png");
+    cameraOutput = canvas.toDataURL("image/jpeg");
     cameraOutput.classList.add("taken");
     
     //取出資料並使用atob將資料轉為base64的字串
-    // const blobBin = atob(dataURL.split(',')[1])
+    // const blobBin = atob(cameraOutput.DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC(',')[1]);
     // console.log(blobBin);
 
 
