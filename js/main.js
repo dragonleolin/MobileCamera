@@ -242,7 +242,7 @@ function takeSnapshot() {
 
     //take a picture 
     cameraOutput = canvas.toDataURL("image/jpeg");
-    // cameraOutput.classList.add("taken");
+    cameraOutput.classList.add("taken");
     
 
     //保存canvas標籤裡的圖片並且按規則重新命名
