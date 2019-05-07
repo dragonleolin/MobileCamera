@@ -231,8 +231,8 @@ function initCameraStream() {
 function takeSnapshot() {
     const video = document.querySelector("#video")
     // const canvas = document.querySelector("#camera--sensor");
-    // const canvas = document.createElement('canvas')
-    const canvas = document.getElementById('camera--sensor')
+    const canvas = document.createElement('canvas')
+    // const canvas = document.getElementById('camera--sensor')
     const cameraOutput = document.querySelector("#camera--output");
 
     
@@ -244,15 +244,19 @@ function takeSnapshot() {
     cameraOutput = canvas.toDataURL("image/jpeg");
     cameraOutput.classList.add("taken");
     
+    //取出資料並使用atob將資料轉為base64的字串
+    // const blobBin = atob(cameraOutput.DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC(',')[1]);
+    // console.log(blobBin);
+
 
     //保存canvas標籤裡的圖片並且按規則重新命名
-    var type = 'png';
+//     var type = 'png';
    
-    var _fixType = function(type) {
-       type = type.toLowerCase().replace(/jpg/i, 'jpeg');
-       var r = type.match(/png|jpeg|bmp|gif/)[0];
-       return 'image/' + r;
-   };
+//     var _fixType = function(type) {
+//        type = type.toLowerCase().replace(/jpg/i, 'jpeg');
+//        var r = type.match(/png|jpeg|bmp|gif/)[0];
+//        return 'image/' + r;
+//    };
 }
 
 function uploadFile() {
@@ -265,7 +269,6 @@ function uploadFile() {
         // // 呼叫圖片壓縮方法：
         // compress(res, fileSize);
         // };
-        var uploadImage = document.querySelector('#uploadImage');
 
 
     
