@@ -225,6 +225,7 @@ function initCameraStream() {
 
 // }
 
+//按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
   const video = document.querySelector("#video");
   // const canvas = document.querySelector("#camera--sensor");
@@ -286,6 +287,8 @@ function uploadFile() {
     /*
     * 接著這個 file就可以被 FromData使用
     */
+
+    alert("file: ", file)
     const formData = new FormData()
     formData.append('file', file, 'test.png')
     for(let field of formData) {
@@ -299,8 +302,8 @@ function uploadFile() {
         },
         "processData": false,
         "contentType": false,
-        "mimeType": "multipart/file-data",
-        "data": file,
+        "mimeType": "multipart/form-data",
+        "data": form,
       }
 
       $.ajax(settings).done(function (response) {
