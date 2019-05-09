@@ -67,10 +67,12 @@ function initCameraUI() {
 
   takePhotoButton.addEventListener("click", function() {
     // takeSnapshotUI();
+    alert("takeSnapshot()")
     takeSnapshot();
   });
 
-  uploadImage.addEventListener("click", uploadFile);
+  uploadImage.addEventListener("click", function(){
+    uploadFile()});
 
     // 下载后的文件名规则filename
     // var filename = (new Date()).getTime() + '.' + type;
@@ -291,6 +293,7 @@ function uploadFile() {
     alert("file: ", file)
     const formData = new FormData()
     formData.append('file', file, 'test.png')
+    alert("upload success")
     for(let field of formData) {
       var settings = {
         "async": true,
@@ -311,6 +314,8 @@ function uploadFile() {
         var res = JSON.parse(response);
         console.log(res.data.link);
       });
+
+
     }
         // ["file", [object File] {
         //   lastModified: 1514901149956,
