@@ -67,13 +67,12 @@ function initCameraUI() {
 
   takePhotoButton.addEventListener("click", function() {
     // takeSnapshotUI();
-    alert("takeSnapshot()")
     takeSnapshot();
   });
 
   uploadImage.addEventListener("click", function(){
-    alert("uploadFile()")
-    uploadFile()});
+    uploadFile()
+  });
 
     // 下载后的文件名规则filename
     // var filename = (new Date()).getTime() + '.' + type;
@@ -230,6 +229,7 @@ function initCameraStream() {
 
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
+  alert("takeSnapshot")
   const video = document.querySelector("#video");
   // const canvas = document.querySelector("#camera--sensor");
   // const canvas = document.createElement('canvas')
@@ -243,6 +243,7 @@ function takeSnapshot() {
   //take a picture
   cameraOutput.src = canvas.toDataURL("image/jpeg");
   cameraOutput.classList.add("taken");
+  alert("taken")
 
 
   //保存canvas標籤裡的圖片並且按規則重新命名
@@ -256,13 +257,14 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
+  alert('uploadFile');
   const canvas = document.getElementById("camera--sensor");
 
   //take a picture
   cameraOutput.src = canvas.toDataURL("image/jpeg");
 
 
-
+  alert('cameraOutput.src');
   //取出資料並使用atob將資料轉為base64的字串
   const blobBin = atob(cameraOutput.src.split(',')[1]);
   console.log(blobBin);
