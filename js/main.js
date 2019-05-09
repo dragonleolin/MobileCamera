@@ -264,7 +264,7 @@ function uploadFile() {
   //take a picture
   alert('canvas: ' + typeof(canvas));
   cameraOutput.src = canvas.toDataURL("image/jpeg");
-
+  alert('3')
   
   alert('cameraOutput.src: ' + typeof(cameraOutput.src));
   //取出資料並使用atob將資料轉為base64的字串
