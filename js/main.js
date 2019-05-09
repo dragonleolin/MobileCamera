@@ -243,7 +243,7 @@ function takeSnapshot() {
   //take a picture
   cameraOutput.src = canvas.toDataURL("image/jpeg");
   cameraOutput.classList.add("taken");
-  alert("taken")
+  alert("takecameraOutput.srcn: " + typeof(cameraOutput.src))
 
 
   //保存canvas標籤裡的圖片並且按規則重新命名
@@ -264,7 +264,7 @@ function uploadFile() {
   cameraOutput.src = canvas.toDataURL("image/jpeg");
 
 
-  alert('cameraOutput.src');
+  alert('cameraOutput.src: ' + cameraOutput.src);
   //取出資料並使用atob將資料轉為base64的字串
   const blobBin = atob(cameraOutput.src.split(',')[1]);
   console.log(blobBin);
