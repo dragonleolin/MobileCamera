@@ -295,7 +295,7 @@ function uploadFile() {
       var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://api.imgur.com/3/image",
+        "url": "https://console.firebase.google.com/project/project-d4e29/database/project-d4e29/data/image",
         "method": "POST",
         "headers": {
           "Authorization": "Client-ID {{clientId}}"
