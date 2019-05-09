@@ -72,6 +72,7 @@ function initCameraUI() {
   });
 
   uploadImage.addEventListener("click", function(){
+    alert("uploadFile()")
     uploadFile()});
 
     // 下载后的文件名规则filename
