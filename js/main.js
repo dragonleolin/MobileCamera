@@ -229,7 +229,6 @@ function initCameraStream() {
 
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
-  alert("takeSnapshot")
   const video = document.querySelector("#video");
   // const canvas = document.querySelector("#camera--sensor");
   // const canvas = document.createElement('canvas')
@@ -259,7 +258,7 @@ function takeSnapshot() {
   //    };
 }
 
-function uploadFile() {
+function uploadFile(imgData) {
   alert("imgData: " + typeof(imgData))
 
   alert('uploadFile');
