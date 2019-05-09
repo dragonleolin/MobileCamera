@@ -262,9 +262,10 @@ function uploadFile() {
   const canvas = document.getElementById("camera--sensor");
   alert('2')
   //take a picture
+  alert('canvas: ' + typeof(canvas));
   cameraOutput.src = canvas.toDataURL("image/jpeg");
 
-  alert('canvas: ' + typeof(canvas));
+  
   alert('cameraOutput.src: ' + typeof(cameraOutput.src));
   //取出資料並使用atob將資料轉為base64的字串
   const blobBin = atob(cameraOutput.src.split(',')[1]);
