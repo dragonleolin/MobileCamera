@@ -306,13 +306,13 @@ function takeSnapshot() {
   //    };
 }
 
-function uploadFile() {
+function uploadFile(cameraOutput) {
   alert('uploadFile');
-  alert('1')
+  alert('1111')
   const canvas = document.getElementById("camera--sensor");
   alert('canvas: ' + typeof(canvas));
   cameraOutput.src = canvas.toDataURL("image/jpeg");
-  alert('2')
+  alert('22222')
   alert('cameraOutput.src: ' + typeof(cameraOutput.src));
  
   var settings = {
