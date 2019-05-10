@@ -256,6 +256,9 @@ function takeSnapshot() {
  const mime = cameraOutput.src.split(',')[0].split(':')[1].split(';')[0]
  alert('mime=' +mime);
  alert('5')
+ alert('6')
+ alert('canvas=' + canvas)
+  return canvas;
  //建立一個array容器放charCode
  const array = [];
  for (let i=0; i < blobBin.length; i++) {
@@ -313,6 +316,7 @@ function uploadFile() {
   alert('1111')
   const canvas = document.getElementById("camera--sensor");
   alert('canvas: ' + typeof(canvas));
+
   alert('1221')
   const cameraImg = document.querySelector("img");
   alert('cameraImg: ' + typeof(cameraImg));
