@@ -244,9 +244,6 @@ function takeSnapshot() {
   cameraOutput.classList.add("taken");
   uploadImage(cameraOutput.src);
   alert("takecameraOutput.srcn: " + typeof(cameraOutput.src))
-  var imgData = cameraOutput.src;
-  alert("imgData: " + typeof(imgData))
-  uploadImage(imgData);
 
 
   //保存canvas標籤裡的圖片並且按規則重新命名
@@ -259,9 +256,7 @@ function takeSnapshot() {
   //    };
 }
 
-function uploadFile(imgData) {
-  alert("imgData: " + typeof(imgData))
-
+function uploadFile() {
   alert('uploadFile');
   alert('1')
   const canvas = document.getElementById("camera--sensor");
