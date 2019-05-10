@@ -238,12 +238,14 @@ function takeSnapshot() {
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
   canvas.getContext("2d").drawImage(video, 0, 0);
-  alert("111" )
+  alert("121" )
   //take a picture
-  cameraOutputSrc = canvas.toDataURL("image/jpeg");
+  cameraOutput.src = canvas.toDataURL("image/jpeg");
   cameraOutput.classList.add("taken");
-  alert("222" )
-  alert("takecameraOutput.src: " + typeof(cameraOutputSrc))
+  var base64String;
+  base64String = cameraOutput.src.substr(22); //取得base64字串
+  alert("122" )
+  alert("base64String=" + base64String )
   // uploadImage(cameraOutput.src);
 
 
