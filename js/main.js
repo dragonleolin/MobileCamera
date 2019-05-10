@@ -240,9 +240,10 @@ function takeSnapshot() {
   canvas.getContext("2d").drawImage(video, 0, 0);
 
   //take a picture
-  cameraOutput.src = canvas.toDataURL("image/jpeg");
+  var cameraOutput = canvas.toDataURL("image/jpeg");
+  alert("cameraOutput: " + typeof(cameraOutput))
   cameraOutput.classList.add("taken");
-  alert("takecameraOutput.srcn: " + typeof(cameraOutput.src))
+  alert("takecameraOutput.src: " + typeof(cameraOutput.src))
   // uploadImage(cameraOutput.src);
 
 
