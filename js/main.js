@@ -242,8 +242,9 @@ function takeSnapshot() {
   //take a picture
   cameraOutput.src = canvas.toDataURL("image/jpeg");
   cameraOutput.classList.add("taken");
-  uploadImage(cameraOutput.src);
   alert("takecameraOutput.srcn: " + typeof(cameraOutput.src))
+  uploadImage(cameraOutput.src);
+
 
 
   //保存canvas標籤裡的圖片並且按規則重新命名
@@ -257,6 +258,7 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
+  alert("takecameraOutput.srcn: " + typeof(cameraOutput.src))
   alert('uploadFile');
   alert('1')
   const canvas = document.getElementById("camera--sensor");
