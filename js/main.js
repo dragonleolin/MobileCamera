@@ -262,14 +262,14 @@ function uploadFile() {
   alert('1')
   const canvas = document.getElementById("camera--sensor");
   alert('2')
+  alert('canvas: ' + typeof(canvas));
   cameraOutput.src = canvas.toDataURL("image/jpeg");
   alert('3')
-  
   alert('cameraOutput.src: ' + typeof(cameraOutput.src));
   //取出資料並使用atob將資料轉為base64的字串
   const blobBin = atob(cameraOutput.src.split(',')[1]);
   console.log(blobBin);
-
+  alert('4')
   // 取得 mine
   const mime = cameraOutput.src.split(',')[0].split(':')[1].split(';')[0]
   console.log(mime)   // "image/png"
