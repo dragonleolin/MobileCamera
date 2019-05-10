@@ -257,7 +257,7 @@ function takeSnapshot() {
   //    };
 }
 
-function uploadFile(canvas) {
+function uploadFile() {
   alert('uploadFile');
   alert('canvas0: ' + typeof(canvas));
   alert('1')
