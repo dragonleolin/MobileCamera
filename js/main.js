@@ -242,8 +242,8 @@ function takeSnapshot() {
   //take a picture
   cameraOutput.src = canvas.toDataURL("image/jpeg");
   cameraOutput.classList.add("taken");
-  alert("takecameraOutput.srcn: " + typeof(cameraOutput.src))
-  uploadImage(cameraOutput.src);
+  alert("takecameraOutput.src: " + typeof(cameraOutput.src))
+
 
 
 
@@ -257,9 +257,9 @@ function takeSnapshot() {
   //    };
 }
 
-function uploadFile() {
-  alert("cameraOutput.src: " + typeof(cameraOutput.src))
+function uploadFile(canvas) {
   alert('uploadFile');
+  alert('canvas0: ' + typeof(canvas));
   alert('1')
   const canvas = document.getElementById("camera--sensor");
   alert('2')
