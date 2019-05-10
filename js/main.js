@@ -258,7 +258,7 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
-  alert("takecameraOutput.srcn: " + typeof(cameraOutput.src))
+  alert("cameraOutput.src: " + typeof(cameraOutput.src))
   alert('uploadFile');
   alert('1')
   const canvas = document.getElementById("camera--sensor");
