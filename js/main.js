@@ -238,16 +238,62 @@ function takeSnapshot() {
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
   canvas.getContext("2d").drawImage(video, 0, 0);
-  alert("121" )
+  alert("1" )
   //take a picture
   cameraOutput.src = canvas.toDataURL("image/jpeg");
   cameraOutput.classList.add("taken");
   var base64String;
   base64String = cameraOutput.src.substr(22); //取得base64字串
-  alert("122" )
+  alert("2" )
   alert("base64String=" + base64String )
   // uploadImage(cameraOutput.src);
 
+ //取出資料並使用atob將資料轉為base64的字串
+ const blobBin = atob(cameraOutput.src.split(',')[1]);
+ console.log(blobBin);
+ alert('4')
+ // 取得 mine
+ const mime = cameraOutput.src.split(',')[0].split(':')[1].split(';')[0]
+ console.log(mime)   // "image/png"
+
+ //建立一個array容器放charCode
+ const array = [];
+ for (let i=0; i < blobBin.length; i++) {
+     array.push(blobBin.charCodeAt(i));
+ }
+
+ // 將基礎arr 轉為 ArrayBuffer (usign integer 8): Uint8Array
+   const u8 = new Uint8Array(arr)
+   const file = new Blob([u8], { type: mime })
+   console.log(file)
+   // [object Blob] {
+   //   size: 3860,
+   //   slice: function slice() { [native code] },
+   //   type: "image/png"
+   // }
+
+   /*
+   * 接著這個 file就可以被 FromData使用
+   */
+
+   alert("file: ", file)
+   const formData = new FormData()
+   formData.append('file', file, 'test.png')
+   alert("upload success")
+   for(let field of formData) {
+
+
+
+   }
+       // ["file", [object File] {
+       //   lastModified: 1514901149956,
+       //   lastModifiedDate: [object Date] { ... },
+       //   name: "test.png",
+       //   size: 3860,
+       //   slice: function slice() { [native code] },
+       //   type: "image/png",
+       //   webkitRelativePath: ""
+       // }]
 
 
   //保存canvas標籤裡的圖片並且按規則重新命名
@@ -266,72 +312,28 @@ function uploadFile() {
   const canvas = document.getElementById("camera--sensor");
   alert('canvas: ' + typeof(canvas));
   cameraOutput.src = canvas.toDataURL("image/jpeg");
-  alert('3')
+  alert('2')
   alert('cameraOutput.src: ' + typeof(cameraOutput.src));
-  //取出資料並使用atob將資料轉為base64的字串
-  const blobBin = atob(cameraOutput.src.split(',')[1]);
-  console.log(blobBin);
-  alert('4')
-  // 取得 mine
-  const mime = cameraOutput.src.split(',')[0].split(':')[1].split(';')[0]
-  console.log(mime)   // "image/png"
-
-  //建立一個array容器放charCode
-  const array = [];
-  for (let i=0; i < blobBin.length; i++) {
-      array.push(blobBin.charCodeAt(i));
+ 
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://console.firebase.google.com/project/project-d4e29/database/project-d4e29/data/image",
+    "method": "POST",
+    "headers": {
+      "Authorization": "Client-ID {{clientId}}"
+    },
+    "processData": false,
+    "contentType": false,
+    "mimeType": "multipart/form-data",
+    "data": form,
   }
 
-  // 將基礎arr 轉為 ArrayBuffer (usign integer 8): Uint8Array
-    const u8 = new Uint8Array(arr)
-    const file = new Blob([u8], { type: mime })
-    console.log(file)
-    // [object Blob] {
-    //   size: 3860,
-    //   slice: function slice() { [native code] },
-    //   type: "image/png"
-    // }
-
-    /*
-    * 接著這個 file就可以被 FromData使用
-    */
-
-    alert("file: ", file)
-    const formData = new FormData()
-    formData.append('file', file, 'test.png')
-    alert("upload success")
-    for(let field of formData) {
-      var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://console.firebase.google.com/project/project-d4e29/database/project-d4e29/data/image",
-        "method": "POST",
-        "headers": {
-          "Authorization": "Client-ID {{clientId}}"
-        },
-        "processData": false,
-        "contentType": false,
-        "mimeType": "multipart/form-data",
-        "data": form,
-      }
-
-      $.ajax(settings).done(function (response) {
-        // get respon string type json
-        var res = JSON.parse(response);
-        console.log(res.data.link);
-      });
-
-
-    }
-        // ["file", [object File] {
-        //   lastModified: 1514901149956,
-        //   lastModifiedDate: [object Date] { ... },
-        //   name: "test.png",
-        //   size: 3860,
-        //   slice: function slice() { [native code] },
-        //   type: "image/png",
-        //   webkitRelativePath: ""
-        // }]
+  $.ajax(settings).done(function (response) {
+    // get respon string type json
+    var res = JSON.parse(response);
+    console.log(res.data.link);
+  });
 
 
 }
