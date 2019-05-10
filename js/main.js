@@ -306,7 +306,7 @@ function takeSnapshot() {
   //    };
 }
 
-function uploadFile(cameraOutput) {
+function uploadFile() {
   alert('uploadFile');
   alert('1111')
   const canvas = document.getElementById("camera--sensor");
