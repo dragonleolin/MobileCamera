@@ -255,7 +255,7 @@ function takeSnapshot() {
  // 取得 mine
  const mime = cameraOutput.src.split(',')[0].split(':')[1].split(';')[0]
  alert('mime=' +mime);
- alert('5')
+ alert('55')
  alert('6')
  alert('canvas=' + canvas)
   return canvas;
