@@ -250,12 +250,12 @@ function takeSnapshot() {
 
  //取出資料並使用atob將資料轉為base64的字串
  const blobBin = atob(cameraOutput.src.split(',')[1]);
- console.log(blobBin);
+ alert('blobBin=' +blobBin);
  alert('4')
  // 取得 mine
  const mime = cameraOutput.src.split(',')[0].split(':')[1].split(';')[0]
- console.log(mime)   // "image/png"
-
+ alert('mime=' +mime);
+ alert('5')
  //建立一個array容器放charCode
  const array = [];
  for (let i=0; i < blobBin.length; i++) {
@@ -266,6 +266,8 @@ function takeSnapshot() {
    const u8 = new Uint8Array(arr)
    const file = new Blob([u8], { type: mime })
    console.log(file)
+   alert('file=' + file);
+   alert('6')
    // [object Blob] {
    //   size: 3860,
    //   slice: function slice() { [native code] },
