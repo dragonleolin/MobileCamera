@@ -312,8 +312,8 @@ function uploadFile(cameraOutput) {
   const canvas = document.getElementById("camera--sensor");
   alert('canvas: ' + typeof(canvas));
   alert('1221')
-  const cameraOutput = document.querySelector("#camera--output");
-  alert('cameraOutput: ' + typeof(cameraOutput));
+  const cameraImg = document.querySelector("img");
+  alert('cameraImg: ' + typeof(cameraImg));
   cameraOutput.src = canvas.toDataURL("image/jpeg");
   alert('22222')
   alert('cameraOutput.src: ' + typeof(cameraOutput.src));
