@@ -238,7 +238,7 @@ function takeSnapshot() {
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
   canvas.getContext("2d").drawImage(video, 0, 0);
-
+  alert("111" )
   //take a picture
   cameraOutput = canvas.toDataURL("image/jpeg");
   alert("cameraOutput:" + cameraOutput )
