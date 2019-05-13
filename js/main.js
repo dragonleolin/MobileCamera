@@ -229,6 +229,7 @@ function initCameraStream() {
 
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
+  alert('takeSnapshot()' + canvas)
   const video = document.querySelector("#video");
   // const canvas = document.querySelector("#camera--sensor");
   // const canvas = document.createElement('canvas')
@@ -238,26 +239,17 @@ function takeSnapshot() {
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
   canvas.getContext("2d").drawImage(video, 0, 0);
-  alert("1" )
   //take a picture
   cameraOutput.src = canvas.toDataURL("image/jpeg");
   cameraOutput.classList.add("taken");
   var base64String;
   base64String = cameraOutput.src.substr(22); //取得base64字串
-  alert("2" )
-  alert("base64String=" + base64String )
   // uploadImage(cameraOutput.src);
 
  //取出資料並使用atob將資料轉為base64的字串
  const blobBin = atob(cameraOutput.src.split(',')[1]);
- alert('blobBin=' +blobBin);
- alert('4')
  // 取得 mine
  const mime = cameraOutput.src.split(',')[0].split(':')[1].split(';')[0]
- alert('mime=' +mime);
- alert('55')
- alert('6')
- alert('canvas=' + canvas)
   return canvas;
  //建立一個array容器放charCode
  const array = [];
