@@ -229,7 +229,7 @@ function initCameraStream() {
 
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
-  alert('takeSnapshot0429')
+  alert('takeSnapshot0517')
   const video = document.querySelector("#video");
   // const canvas = document.querySelector("#camera--sensor");
   // const canvas = document.createElement('canvas')
@@ -302,18 +302,23 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
-  alert('Img0429');
-  alert('field= ' + field);
-  const canvas = document.getElementById("camera--sensor");
-  const cameraOutput = document.querySelector("#camera--output2");
-
-  canvas.width = this.canvas.width;
-  canvas.height = this.canvas.height;
-  canvas.getContext("2d").drawImage(canvas, 0, 0);
-  //take a picture
-  cameraOutput.src = canvas.toDataURL("image/jpeg"); //另存圖片
-  cameraOutput.classList.add("takenL");
-
+  alert('Img0517');
+  var canvas = document.getElementById("canvas");
+  var ctx = canvas.getContext('2d');
+  
+  var img = new Image();
+  
+  img.onload = function () {
+      canvas.width = this.width
+      canvas.height = this.height
+      ctx.drawImage(this, 0, 0, canvas.width, canvas.height)
+      URL.revokeObjectURL(src)
+  }
+  
+  var file = this.files[0];
+  var src = URL.createObjectURL(file);
+  
+  img.src = src;
 
 
 
@@ -324,15 +329,15 @@ function uploadFile() {
   var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "https://console.firebase.google.com/project/project-d4e29/database/project-d4e29/data/image",
+    "url": "ftp://file.stantex.com.tw/QCWEB/",
     "method": "POST",
     "headers": {
-      "Authorization": "Client-ID {{clientId}}"
+      "Authorization": "QCUL {{stx308}}"
     },
     "processData": false,
     "contentType": false,
-    "mimeType": "multipart/form-data",
-    "data": form,
+    "mimeType": "image/jpeg",
+    "data": img.src,
   }
 
   $.ajax(settings).done(function (response) {
