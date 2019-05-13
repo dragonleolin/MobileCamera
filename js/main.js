@@ -255,10 +255,8 @@ function takeSnapshot() {
  // 取得 mine
  const mime = cameraOutput.src.split(',')[0].split(':')[1].split(';')[0]
  alert('mime=' +mime);
- alert('55')
- alert('6')
- alert('canvas=' + canvas)
-  return canvas;
+
+
  //建立一個array容器放charCode
  const array = [];
  for (let i=0; i < blobBin.length; i++) {
@@ -311,9 +309,9 @@ function takeSnapshot() {
   //    };
 }
 
-function uploadFile() {
+function uploadFile(base64String) {
   alert('uploadFile');
-  alert('1111')
+  alert('base64String=' + base64String)
   const canvas = document.getElementById("camera--sensor");
   alert('canvas: ' + typeof(canvas));
 
