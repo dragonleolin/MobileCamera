@@ -229,7 +229,7 @@ function initCameraStream() {
 
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
-  alert('takeSnapshot0250')
+  alert('takeSnapshot0323')
   const video = document.querySelector("#video");
   // const canvas = document.querySelector("#camera--sensor");
   // const canvas = document.createElement('canvas')
@@ -270,14 +270,12 @@ function takeSnapshot() {
    /*
    * 接著這個 file就可以被 FromData使用
    */
-
-   alert("file: ", file)
    const formData = new FormData()
    formData.append('file', file, 'test.png')
    alert("upload success")
-   for(let field of formData) {
+   for(var field of formData) {
 
-
+      return field;
 
    }
        // ["file", [object File] {
@@ -301,9 +299,9 @@ function takeSnapshot() {
   //    };
 }
 
-function uploadFile() {
-  alert('Img0250');
-  alert('base64String= ' + base64String);
+function uploadFile(field) {
+  alert('Img0323');
+  alert('field= ' + field);
   const cameraOutput = cameraOutput.src;
   var preview = document.getElementById('preview')
    preview.src = cameraOutput;
