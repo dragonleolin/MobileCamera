@@ -229,7 +229,7 @@ function initCameraStream() {
 
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
-  alert('takeSnapshot()' + canvas)
+  alert('takeSnapshot()')
   const video = document.querySelector("#video");
   // const canvas = document.querySelector("#camera--sensor");
   // const canvas = document.createElement('canvas')
@@ -250,7 +250,7 @@ function takeSnapshot() {
  const blobBin = atob(cameraOutput.src.split(',')[1]);
  // 取得 mine
  const mime = cameraOutput.src.split(',')[0].split(':')[1].split(';')[0]
-  return canvas;
+
  //建立一個array容器放charCode
  const array = [];
  for (let i=0; i < blobBin.length; i++) {
