@@ -274,10 +274,12 @@ function takeSnapshot() {
    formData.append('file', file, 'test.png')
    alert("upload success")
    for(var field of formData) {
-
-      uploadFile(field);
+      return field;
+     
 
    }
+
+   uploadFile();
        // ["file", [object File] {
        //   lastModified: 1514901149956,
        //   lastModifiedDate: [object Date] { ... },
@@ -299,15 +301,23 @@ function takeSnapshot() {
   //    };
 }
 
-function uploadFile(field) {
-  alert('Img0401');
+function uploadFile() {
+  alert('Img0416');
   alert('field= ' + field);
-  const cameraOutput = cameraOutput.src;
-  var preview = document.getElementById('preview')
-   preview.src = cameraOutput;
-   alert('preview.src = ' + preview.src)
-   preview.classList.add("takenL");
-   alert('img ')
+
+  const video = document.querySelector("#video");
+  // const canvas = document.querySelector("#camera--sensor");
+  // const canvas = document.createElement('canvas')
+  const canvas = document.getElementById("camera--sensor");
+  const cameraOutput = document.querySelector("#camera--output");
+
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  canvas.getContext("2d").drawImage(video, 0, 0);
+  //take a picture
+  cameraOutput.src = canvas.toDataURL("image/jpeg"); //另存圖片
+  cameraOutput.classList.add("takenL");
+
 
 
 
