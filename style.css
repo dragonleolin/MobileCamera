@@ -75,6 +75,15 @@ option {
    text-align: center;
 }
 
+.file-label {
+    width: 15rem;
+  }
+input[type=file].hidden {
+    visibility: hidden;
+    width: 15rem;
+    margin-left: -15rem;
+  }
+
 #takePhotoButton {
     left: calc(50% - 40px);
     top: calc(50% - 40px);
