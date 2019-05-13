@@ -255,8 +255,10 @@ function takeSnapshot() {
  // 取得 mine
  const mime = cameraOutput.src.split(',')[0].split(':')[1].split(';')[0]
  alert('mime=' +mime);
-
-
+ alert('55')
+ alert('6')
+ alert('canvas=' + canvas)
+  return canvas;
  //建立一個array容器放charCode
  const array = [];
  for (let i=0; i < blobBin.length; i++) {
@@ -309,17 +311,18 @@ function takeSnapshot() {
   //    };
 }
 
-function uploadFile(base64String) {
+function uploadFile(canvas) {
+  alert('canvas=' + canvas)
   alert('uploadFile');
-  alert('base64String=' + base64String)
+  alert('1')
   const canvas = document.getElementById("camera--sensor");
   alert('canvas: ' + typeof(canvas));
 
-  alert('1221')
+  alert('2')
   const cameraImg = document.querySelector("img");
   alert('cameraImg: ' + typeof(cameraImg));
   cameraOutput.src = canvas.toDataURL("image/jpeg");
-  alert('22222')
+  alert('3')
   alert('cameraOutput.src: ' + typeof(cameraOutput.src));
  
   var settings = {
