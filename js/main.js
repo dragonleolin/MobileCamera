@@ -304,16 +304,11 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
-  alert('Img3');
-  const canvas = document.getElementById("camera--sensor");
-
+  alert('Img0153');
   const cameraOutput = document.querySelector("#camera--output");
-  cameraOutput.src = canvas.toDataURL("image/jpeg");
-  alert('cameraOutput.src = ' + cameraOutput.src)
-  var img = new Image(), lastImgData = ls.getItem('image'), x, y,
-      context = canvas.getContext('2d'),
-      preview = document.getElementById('preview')
+  var preview = document.getElementById('preview')
    preview.src = cameraOutput.src;
+   alert('preview.src = ' + preview.src)
    preview.classList.add("takenL");
    alert('img ')
 
