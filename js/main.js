@@ -229,7 +229,7 @@ function initCameraStream() {
 
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
-  alert('takeSnapshot0517')
+  alert('takeSnapshot0524')
   const video = document.querySelector("#video");
   // const canvas = document.querySelector("#camera--sensor");
   // const canvas = document.createElement('canvas')
@@ -279,7 +279,6 @@ function takeSnapshot() {
 
    }
 
-   uploadFile();
        // ["file", [object File] {
        //   lastModified: 1514901149956,
        //   lastModifiedDate: [object Date] { ... },
@@ -302,7 +301,7 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
-  alert('Img0517');
+  alert('Img0524');
   var canvas = document.getElementById("canvas");
   var ctx = canvas.getContext('2d');
   
@@ -316,10 +315,12 @@ function uploadFile() {
   }
   
   var file = this.files[0];
+  alert('file=' + file)
+  alert('1' )
   var src = URL.createObjectURL(file);
   
   img.src = src;
-
+  alert('img.src=' + img.src)
 
 
 
