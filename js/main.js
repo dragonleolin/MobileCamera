@@ -304,7 +304,7 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
-  alert('Img2');
+  alert('Img3');
   const canvas = document.getElementById("camera--sensor");
 
   const cameraOutput = document.querySelector("#camera--output");
@@ -313,10 +313,7 @@ function uploadFile() {
   var img = new Image(), lastImgData = ls.getItem('image'), x, y,
       context = canvas.getContext('2d'),
       preview = document.getElementById('preview')
-  var dataUrl;
-  alert('canvas = ' + canvas)
-   dataUrl = canvas.toDataURL();
-   preview.src = dataUrl;
+   preview.src = cameraOutput.src;
    preview.classList.add("takenL");
    alert('img ')
 
