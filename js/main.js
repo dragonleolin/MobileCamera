@@ -311,19 +311,18 @@ function takeSnapshot() {
   //    };
 }
 
-function uploadFile(canvas) {
-  alert('canvas=' + canvas)
+function uploadFile() {
   alert('uploadFile');
   alert('1')
   const canvas = document.getElementById("camera--sensor");
-  alert('canvas: ' + typeof(canvas));
+  alert('canvas: ' + typeof(canvas) +"&& "+ canvas);
 
   alert('2')
-  const cameraImg = document.querySelector("img");
-  alert('cameraImg: ' + typeof(cameraImg));
+  const cameraOutput = document.querySelector("#camera--output");
   cameraOutput.src = canvas.toDataURL("image/jpeg");
-  alert('3')
-  alert('cameraOutput.src: ' + typeof(cameraOutput.src));
+  alert('cameraOutput.src=' +cameraOutput.src)
+  alert('22222')
+
  
   var settings = {
     "async": true,
