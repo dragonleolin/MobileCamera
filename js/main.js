@@ -313,6 +313,10 @@ function uploadFile() {
   var img = new Image(), lastImgData = ls.getItem('image'), x, y,
       context = canvas.getContext('2d'),
       preview = document.getElementById('preview')
+
+    if (lastImgData) {
+        img.src = lastImgData;   
+    }
   
   var dataUrl;
 
