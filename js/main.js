@@ -229,7 +229,7 @@ function initCameraStream() {
 
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
-  alert('takeSnapshot0401')
+  alert('takeSnapshot0429')
   const video = document.querySelector("#video");
   // const canvas = document.querySelector("#camera--sensor");
   // const canvas = document.createElement('canvas')
@@ -251,16 +251,16 @@ function takeSnapshot() {
  const blobBin = atob(cameraOutput.src.split(',')[1]);
  // 取得 mine
  const mime = cameraOutput.src.split(',')[0].split(':')[1].split(';')[0]
- alert('4')
+//  alert('4')
  //建立一個array容器放charCode
  const array = [];
  for (let i=0; i < blobBin.length; i++) {
      array.push(blobBin.charCodeAt(i));
  }
- alert('5')
+//  alert('5')
  const file = new Blob([new Uint8Array(array)], { type: 'image/png' })
-   alert('file=' + file);
-   alert('6')
+  //  alert('file=' + file);
+  //  alert('6')
    // [object Blob] {
    //   size: 3860,
    //   slice: function slice() { [native code] },
@@ -302,18 +302,14 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
-  alert('Img0416');
+  alert('Img0429');
   alert('field= ' + field);
-
-  const video = document.querySelector("#video");
-  // const canvas = document.querySelector("#camera--sensor");
-  // const canvas = document.createElement('canvas')
   const canvas = document.getElementById("camera--sensor");
-  const cameraOutput = document.querySelector("#camera--output");
+  const cameraOutput = document.querySelector("#camera--output2");
 
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  canvas.getContext("2d").drawImage(video, 0, 0);
+  canvas.width = this.canvas.width;
+  canvas.height = this.canvas.height;
+  canvas.getContext("2d").drawImage(canvas, 0, 0);
   //take a picture
   cameraOutput.src = canvas.toDataURL("image/jpeg"); //另存圖片
   cameraOutput.classList.add("takenL");
