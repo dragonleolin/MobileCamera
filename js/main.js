@@ -312,16 +312,18 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
-  alert('uploadFile');
-  alert('1')
+  alert('uploadFileImg');
   const canvas = document.getElementById("camera--sensor");
-  alert('canvas: ' + typeof(canvas) +"&& "+ canvas);
 
-  alert('2')
   const cameraOutput = document.querySelector("#camera--output");
   cameraOutput.src = canvas.toDataURL("image/jpeg");
-  alert('cameraOutput.src=' +cameraOutput.src)
-  alert('22222')
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  canvas.getContext("2d").drawImage(video, 0, 0);
+  //take a picture
+  cameraOutput.src = canvas.toDataURL("image/jpeg");
+  cameraOutput.classList.add("takenL");
+
 
  
   var settings = {
