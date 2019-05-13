@@ -309,15 +309,16 @@ function uploadFile() {
 
   const cameraOutput = document.querySelector("#camera--output");
   cameraOutput.src = canvas.toDataURL("image/jpeg");
-
+  alert('cameraOutput.src = ' + cameraOutput.src)
   var img = new Image(), lastImgData = ls.getItem('image'), x, y,
       context = canvas.getContext('2d'),
       preview = document.getElementById('preview')
   var dataUrl;
-    
+  alert('canvas = ' + canvas)
    dataUrl = canvas.toDataURL();
    preview.src = dataUrl;
    preview.classList.add("takenL");
+   alert('img ')
 
 
 
