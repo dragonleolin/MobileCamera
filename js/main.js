@@ -313,20 +313,7 @@ function uploadFile() {
   var img = new Image(), lastImgData = ls.getItem('image'), x, y,
       context = canvas.getContext('2d'),
       preview = document.getElementById('preview')
-
-    if (lastImgData) {
-        img.src = lastImgData;   
-    }
-  
   var dataUrl;
-
-  canvas.width = canvas.width;
-   
-   if (img.width) context.drawImage(img, x, y, neww, newh);
-    
-   context.font = 'bold 18pt arial';
-   context.fillStyle = color;
-   context.fillText(currentText, 150, 100);
     
    dataUrl = canvas.toDataURL();
    preview.src = dataUrl;
