@@ -304,7 +304,7 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
-  alert('previewImg');
+  alert('Img');
   const canvas = document.getElementById("camera--sensor");
 
   const cameraOutput = document.querySelector("#camera--output");
