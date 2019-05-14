@@ -229,7 +229,7 @@ function initCameraStream() {
 
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
-  alert('Img0438');
+  alert('Img0447');
   const video = document.querySelector("#video");
   // const canvas = document.querySelector("#camera--sensor");
   // const canvas = document.createElement('canvas')
@@ -271,12 +271,9 @@ function takeSnapshot() {
    /*
    * 接著這個 file就可以被 FromData使用
    */
-   const formData = new FormData()
+   const formData = new FormData();
    formData.append('file', file, 'test.png')
-  
-   
-   alert("thisFileName=" + this.file.name)
-   alert("formDataName=" + this.formData.name)
+   alert("formDataName=" + formData + "--" + typeof(formData))
     alert("Image type: =" + this.file.type  + formData.type) 
       xhr = new XMLHttpRequest();
         xhr.open("post", "ftp://file.stantex.com.tw/QCWEB/", true);
