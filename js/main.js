@@ -274,30 +274,14 @@ function takeSnapshot() {
    const formData = new FormData()
    formData.append('file', file, 'test.png')
    alert("formData")
-   for(var field of formData) {
-
-     var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "ftp://file.stantex.com.tw/QCWEB/",
-    "method": "POST",
-    "headers": {
-      "Authorization": "Client-ID {{clientId}}"
-    },
-    "processData": false,
-    "contentType": false,
-    "mimeType": "image/jpeg",
-    "data": field,
-  }
-
-  $.ajax(settings).done(function (response) {
-    // get respon string type json
-    var res = JSON.parse(response);
-    alert("upload success")
-  });
-     
-
-   }
+      xhr = new XMLHttpRequest();
+        xhr.open("post", "ftp://file.stantex.com.tw/QCWEB/", true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4) {
+                alert(xhr.responseText);
+            }
+        };
+        xhr.send(formData);
 
        // ["file", [object File] {
        //   lastModified: 1514901149956,
