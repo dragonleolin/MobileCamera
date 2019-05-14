@@ -228,7 +228,7 @@ function initCameraStream() {
 // }
 
 //按下拍照鈕，把相片儲存到canvas內
-function takeSnapshot(image) {
+function takeSnapshot() {
   const video = document.querySelector("#video");
   // const canvas = document.querySelector("#camera--sensor");
   // const canvas = document.createElement('canvas')
@@ -241,11 +241,12 @@ function takeSnapshot(image) {
   //take a picture
   cameraOutput.src = canvas.toDataURL("image/jpeg"); //另存圖片
   cameraOutput.classList.add("taken");
-  return canvas;
-
+  
   var base64String;
   base64String = cameraOutput.src.substr(22); //取得base64字串
   // uploadImage(cameraOutput.src);
+
+  return base64String;
 
  //取出資料並使用atob將資料轉為base64的字串
  const blobBin = atob(cameraOutput.src.split(',')[1]);
@@ -300,18 +301,10 @@ function takeSnapshot(image) {
   //    };
 }
 
-function uploadFile(canvas) {
-  alert('Img0207');
-  var img = new Image();
-  img.src = canvas.toDataURL("image/jpeg");
-  alert('img = ' + img)
-  return img;
-
-  const canvas = document.getElementById("camera--sensor");
-  const cameraOutput = document.getElementById("camera--output");
-  cameraOutput.src = canvas.toDataURL("image/jpeg"); //另存圖片
-  alert('ameraOutput.src = ' +ameraOutput.src)
-  cameraOutput.classList.add("takenL");
+function uploadFile(base64String) {
+  alert('Img0222');
+  
+  alert('base64String = ' + base64String)
 
   // alert('canvas=' + canvas + '--' + typeof(canvas))
   var img = new Image();
