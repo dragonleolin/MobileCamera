@@ -300,9 +300,16 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
-  alert('Img1011');
+  alert('Img1016');
   canvas = document.querySelector('canvas');
-  alert('canvas=' + canvas + '--' + typeof(canvas))
+  const cameraOutput = document.querySelector("#camera--output2");
+  canvas.width = this.Width;
+  canvas.height = this.Height;
+  canvas.getContext("2d").drawImage(this, 0, 0);
+  //take a picture
+  cameraOutput2.src = canvas.toDataURL("image/jpeg"); //另存圖片
+  cameraOutput2.classList.add("taken");
+  alert('cameraOutput2.src=' + cameraOutput2.src + '--' + typeof(cameraOutput2.src))
   
   var img = new Image();
   
