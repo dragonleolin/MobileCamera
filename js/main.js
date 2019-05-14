@@ -299,8 +299,9 @@ function takeSnapshot() {
   //    };
 }
 
-function uploadFile(canvas) {
-  alert('Img0940');
+function uploadFile() {
+  alert('Img1011');
+  canvas = document.querySelector('canvas');
   alert('canvas=' + canvas + '--' + typeof(canvas))
   
   var img = new Image();
