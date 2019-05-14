@@ -228,7 +228,7 @@ function initCameraStream() {
 // }
 
 //按下拍照鈕，把相片儲存到canvas內
-function takeSnapshot() {
+function takeSnapshot(image) {
   const video = document.querySelector("#video");
   // const canvas = document.querySelector("#camera--sensor");
   // const canvas = document.createElement('canvas')
@@ -241,7 +241,8 @@ function takeSnapshot() {
   //take a picture
   cameraOutput.src = canvas.toDataURL("image/jpeg"); //另存圖片
   cameraOutput.classList.add("taken");
-  
+  return canvas;
+
   var base64String;
   base64String = cameraOutput.src.substr(22); //取得base64字串
   // uploadImage(cameraOutput.src);
@@ -299,8 +300,13 @@ function takeSnapshot() {
   //    };
 }
 
-function uploadFile() {
-  alert('Img0148');
+function uploadFile(canvas) {
+  alert('Img0207');
+  var img = new Image();
+  img.src = canvas.toDataURL("image/jpeg");
+  alert('img = ' + img)
+  return img;
+
   const canvas = document.getElementById("camera--sensor");
   const cameraOutput = document.getElementById("camera--output");
   cameraOutput.src = canvas.toDataURL("image/jpeg"); //另存圖片
