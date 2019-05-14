@@ -300,20 +300,13 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
-  alert('Img1016');
-  canvas = document.querySelector('canvas');
-  const cameraOutput = document.querySelector("#camera--output2");
-  canvas.width = this.Width;
-  canvas.height = this.Height;
-  canvas.getContext("2d").drawImage(this, 0, 0);
-  //take a picture
-  cameraOutput2.src = canvas.toDataURL("image/jpeg"); //另存圖片
-  cameraOutput2.classList.add("taken");
-  alert('cameraOutput2.src=' + cameraOutput2.src + '--' + typeof(cameraOutput2.src))
+  alert('Img1103');
   
   var img = new Image();
-  
-  img.onload = function (canvas) {
+  var canvas = canvas = document.querySelector('canvas');
+   alert('canvas=' + canvas + '--' + typeof(canvas))
+  var ctx = canvas.getContext('2d')
+  img.onload = function () {
       canvas.width = this.width
       canvas.height = this.height
       ctx.drawImage(this, 0, 0, canvas.width, canvas.height)
