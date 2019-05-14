@@ -229,6 +229,7 @@ function initCameraStream() {
 
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
+  alert('Img0241');
   const video = document.querySelector("#video");
   // const canvas = document.querySelector("#camera--sensor");
   // const canvas = document.createElement('canvas')
@@ -245,8 +246,7 @@ function takeSnapshot() {
   var base64String;
   base64String = cameraOutput.src.substr(22); //取得base64字串
   // uploadImage(cameraOutput.src);
-
-  return base64String;
+  
 
  //取出資料並使用atob將資料轉為base64的字串
  const blobBin = atob(cameraOutput.src.split(',')[1]);
@@ -273,9 +273,28 @@ function takeSnapshot() {
    */
    const formData = new FormData()
    formData.append('file', file, 'test.png')
-   alert("upload success")
+   alert("formData")
    for(var field of formData) {
-      return field;
+
+     var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "ftp://file.stantex.com.tw/QCWEB/",
+    "method": "POST",
+    "headers": {
+      "Authorization": "Client-ID {{clientId}}"
+    },
+    "processData": false,
+    "contentType": false,
+    "mimeType": "image/jpeg",
+    "data": field,
+  }
+
+  $.ajax(settings).done(function (response) {
+    // get respon string type json
+    var res = JSON.parse(response);
+    alert("upload success")
+  });
      
 
    }
@@ -301,10 +320,13 @@ function takeSnapshot() {
   //    };
 }
 
-function uploadFile(base64String) {
-  alert('Img0222');
-  
-  alert('base64String = ' + base64String)
+function uploadFile() {
+  alert('Img0148');
+  const canvas = document.getElementById("camera--sensor");
+  const cameraOutput = document.getElementById("camera--output");
+  cameraOutput.src = canvas.toDataURL("image/jpeg"); //另存圖片
+  alert('ameraOutput.src = ' +ameraOutput.src)
+  cameraOutput.classList.add("takenL");
 
   // alert('canvas=' + canvas + '--' + typeof(canvas))
   var img = new Image();
