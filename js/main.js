@@ -300,12 +300,17 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
-  alert('Img1103');
-  
+  alert('Img1239');
+  const canvas = document.getElementById("camera--output2");
+  const img = document.getElementById("camera--output");
+  var ctx = canvas.getContext('2d');
+  ctx.drawImage(img, 10, 10);
+  cameraOutput2.classList.add("takenL");
+
+  // alert('canvas=' + canvas + '--' + typeof(canvas))
   var img = new Image();
-  var canvas = canvas = document.querySelector('canvas');
-   alert('canvas=' + canvas + '--' + typeof(canvas))
-  var ctx = canvas.getContext('2d')
+
+  
   img.onload = function () {
       canvas.width = this.width
       canvas.height = this.height
@@ -332,7 +337,7 @@ function uploadFile() {
     "url": "ftp://file.stantex.com.tw/QCWEB/",
     "method": "POST",
     "headers": {
-      "Authorization": "QCUL {{QCUL}}"
+      "Authorization": "Client-ID {{clientId}}"
     },
     "processData": false,
     "contentType": false,
