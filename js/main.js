@@ -300,12 +300,12 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
-  alert('Img1239');
-  const canvas = document.getElementById("camera--output2");
-  const img = document.getElementById("camera--output");
-  var ctx = canvas.getContext('2d');
-  ctx.drawImage(img, 10, 10);
-  cameraOutput2.classList.add("takenL");
+  alert('Img0148');
+  const canvas = document.getElementById("camera--sensor");
+  const cameraOutput = document.getElementById("camera--output");
+  cameraOutput.src = canvas.toDataURL("image/jpeg"); //另存圖片
+  alert('ameraOutput.src = ' +ameraOutput.src)
+  cameraOutput.classList.add("takenL");
 
   // alert('canvas=' + canvas + '--' + typeof(canvas))
   var img = new Image();
