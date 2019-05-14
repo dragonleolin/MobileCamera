@@ -229,7 +229,6 @@ function initCameraStream() {
 
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
-  alert('takeSnapshot0524')
   const video = document.querySelector("#video");
   // const canvas = document.querySelector("#camera--sensor");
   // const canvas = document.createElement('canvas')
@@ -300,14 +299,13 @@ function takeSnapshot() {
   //    };
 }
 
-function uploadFile() {
-  alert('Img0524');
-  var canvas = document.getElementById("canvas");
-  var ctx = canvas.getContext('2d');
+function uploadFile(canvas) {
+  alert('Img0940');
+  alert('canvas=' + canvas + '--' + typeof(canvas))
   
   var img = new Image();
   
-  img.onload = function () {
+  img.onload = function (canvas) {
       canvas.width = this.width
       canvas.height = this.height
       ctx.drawImage(this, 0, 0, canvas.width, canvas.height)
@@ -333,7 +331,7 @@ function uploadFile() {
     "url": "ftp://file.stantex.com.tw/QCWEB/",
     "method": "POST",
     "headers": {
-      "Authorization": "QCUL {{stx308}}"
+      "Authorization": "QCUL {{QCUL}}"
     },
     "processData": false,
     "contentType": false,
