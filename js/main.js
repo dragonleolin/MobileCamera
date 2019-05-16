@@ -229,7 +229,7 @@ function initCameraStream() {
 
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
-  alert('Img0539');
+  alert('Img1123');
   const video = document.querySelector("#video");
   // const canvas = document.querySelector("#camera--sensor");
   // const canvas = document.createElement('canvas')
@@ -242,6 +242,8 @@ function takeSnapshot() {
   //take a picture
   cameraOutput.src = canvas.toDataURL("image/jpeg"); //另存圖片
   cameraOutput.classList.add("taken");
+
+
   
   var base64String;
   base64String = cameraOutput.src.substr(22); //取得base64字串
@@ -281,6 +283,7 @@ function takeSnapshot() {
             }
         };
         xhr.send(formData);
+        
 
        // ["file", [object File] {
        //   lastModified: 1514901149956,
@@ -301,12 +304,14 @@ function takeSnapshot() {
   //        var r = type.match(/png|jpeg|bmp|gif/)[0];
   //        return 'image/' + r;
   //    };
+
 }
 
 function uploadFile() {
-  alert('Img0148');
+  alert('Img1123');
   const canvas = document.getElementById("camera--sensor");
-  const cameraOutput = document.getElementById("camera--output");
+  const taken = document.getElementsByClassName("taken");
+  alert('takenID= ' + taken)
   cameraOutput.src = canvas.toDataURL("image/jpeg"); //另存圖片
   alert('ameraOutput.src = ' +ameraOutput.src)
   cameraOutput.classList.add("takenL");
