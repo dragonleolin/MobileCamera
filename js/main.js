@@ -229,7 +229,7 @@ function initCameraStream() {
 
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
-  alert('Img0520');
+  alert('Img0535');
   const video = document.querySelector("#video");
   // const canvas = document.querySelector("#camera--sensor");
   // const canvas = document.createElement('canvas')
@@ -276,11 +276,7 @@ function takeSnapshot() {
    const formData = new FormData();
    formData.append('file', file, 'test.png')
       xhr = new XMLHttpRequest();
-<<<<<<< HEAD
         xhr.open("POST", "ftp://file.stantex.com.tw/QCWEB/", true);
-=======
-        xhr.open("post", "ftp://file.stantex.com.tw/QCWEB/", true);
->>>>>>> parent of e03f7a6... img
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4) {
                 alert(xhr.responseText);
@@ -312,7 +308,7 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
-  alert('Img0520');
+  alert('Img0535');
   const canvas = document.getElementById("camera--sensor");
   const cameraOutput = document.querySelector("#camera--output");
 
