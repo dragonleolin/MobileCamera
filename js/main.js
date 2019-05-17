@@ -7,6 +7,10 @@ var switchCameraButton;
 var amountOfCameras = 0;
 var currentFacingMode = "environment";
 
+var video = document.querySelector("#video");
+var canvas = document.getElementById("camera--sensor");
+var cameraOutput = document.querySelector("#camera--output");
+
 document.addEventListener("DOMContentLoaded", function(event) {
   // do some WebRTC checks before creating the interface
   DetectRTC.load(function() {
@@ -229,12 +233,8 @@ function initCameraStream() {
 
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
-  alert('Img0151');
-  const video = document.querySelector("#video");
-  // const canvas = document.querySelector("#camera--sensor");
-  // const canvas = document.createElement('canvas')
-  const canvas = document.getElementById("camera--sensor");
-  const cameraOutput = document.querySelector("#camera--output");
+  alert('Img0455');
+
 
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
@@ -308,16 +308,16 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
-  alert('Img0151');
+  alert('Img1200');
   const canvas = document.getElementById("camera--sensor");
-  const cameraOutput = document.getElementById("#camera--output");
-  const cameraOutput2 = document.getElementById("#camera--output2");
+  const cameraOutput = document.querySelector("#camera--output");
+  const cameraOutput = document.querySelector("#camera--output2");
   canvas.width = cameraOutput.videoWidth;
   canvas.height = cameraOutput.videoHeight;
   canvas.getContext("2d").drawImage(cameraOutput, 0, 0);
   //take a picture
-  cameraOutput2.src = canvas.toDataURL("image/jpeg"); //另存圖片
-  cameraOutput2.classList.add("takenL");
+  cameraOutput.src = canvas.toDataURL("image/jpeg"); //另存圖片
+  cameraOutput.classList.add("taken");
 
 
   file = cameraOutput.files[0];
