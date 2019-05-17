@@ -229,11 +229,7 @@ function initCameraStream() {
 
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
-<<<<<<< HEAD
-  alert('Img0513');
-=======
-  alert('Img1200');
->>>>>>> parent of e03f7a6... img
+  alert('Img0520');
   const video = document.querySelector("#video");
   // const canvas = document.querySelector("#camera--sensor");
   // const canvas = document.createElement('canvas')
@@ -316,7 +312,7 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
-  alert('Img1200');
+  alert('Img0520');
   const canvas = document.getElementById("camera--sensor");
   const cameraOutput = document.querySelector("#camera--output");
 
