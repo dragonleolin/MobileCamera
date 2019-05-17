@@ -7,10 +7,6 @@ var switchCameraButton;
 var amountOfCameras = 0;
 var currentFacingMode = "environment";
 
-var video = document.querySelector("#video");
-var canvas = document.getElementById("camera--sensor");
-var cameraOutput = document.querySelector("#camera--output");
-
 document.addEventListener("DOMContentLoaded", function(event) {
   // do some WebRTC checks before creating the interface
   DetectRTC.load(function() {
@@ -231,9 +227,14 @@ function initCameraStream() {
 
 // }
 
+var video = document.querySelector("#video");
+// const canvas = document.querySelector("#camera--sensor");
+// const canvas = document.createElement('canvas')
+var canvas = document.getElementById("camera--sensor");
+var cameraOutput = document.querySelector("#camera--output");
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
-  alert('Img0455');
+  alert('Img0458');
 
 
   canvas.width = video.videoWidth;
