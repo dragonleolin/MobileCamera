@@ -229,6 +229,10 @@ function initCameraStream() {
 
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
+<<<<<<< HEAD
+=======
+  alert('Img0513');
+>>>>>>> parent of cbe1852... img
   const video = document.querySelector("#video");
   // const canvas = document.querySelector("#camera--sensor");
   // const canvas = document.createElement('canvas')
@@ -245,6 +249,53 @@ function takeSnapshot() {
   alert("takecameraOutput.srcn: " + typeof(cameraOutput.src))
   // uploadImage(cameraOutput.src);
 
+<<<<<<< HEAD
+=======
+ //取出資料並使用atob將資料轉為base64的字串
+ const blobBin = atob(cameraOutput.src.split(',')[1]);
+ // 取得 mine
+ const mime = cameraOutput.src.split(',')[0].split(':')[1].split(';')[0]
+//  alert('4')
+ //建立一個array容器放charCode
+ const array = [];
+ for (let i=0; i < blobBin.length; i++) {
+     array.push(blobBin.charCodeAt(i));
+ }
+//  alert('5')
+ const file = new Blob([new Uint8Array(array)], { type: 'image/png' })
+  //  alert('file=' + file);
+  //  alert('6')
+   // [object Blob] {
+   //   size: 3860,
+   //   slice: function slice() { [native code] },
+   //   type: "image/png"
+   // }
+
+   /*
+   * 接著這個 file就可以被 FromData使用
+   */
+   const formData = new FormData();
+   formData.append('file', file, 'test.png')
+      xhr = new XMLHttpRequest();
+        xhr.open("POST", "ftp://file.stantex.com.tw/QCWEB/", true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4) {
+                alert(xhr.responseText);
+            }
+        };
+        xhr.send(formData);
+        
+
+       // ["file", [object File] {
+       //   lastModified: 1514901149956,
+       //   lastModifiedDate: [object Date] { ... },
+       //   name: "test.png",
+       //   size: 3860,
+       //   slice: function slice() { [native code] },
+       //   type: "image/png",
+       //   webkitRelativePath: ""
+       // }]
+>>>>>>> parent of cbe1852... img
 
 
   //保存canvas標籤裡的圖片並且按規則重新命名
