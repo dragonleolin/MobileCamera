@@ -227,15 +227,14 @@ function initCameraStream() {
 
 // }
 
-var video = document.querySelector("#video");
-// const canvas = document.querySelector("#camera--sensor");
-// const canvas = document.createElement('canvas')
-var canvas = document.getElementById("camera--sensor");
-var cameraOutput = document.querySelector("#camera--output");
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
-  alert('Img0458');
-
+  alert('Img0500');
+  const video = document.querySelector("#video");
+  // const canvas = document.querySelector("#camera--sensor");
+  // const canvas = document.createElement('canvas')
+  const canvas = document.getElementById("camera--sensor");
+  const cameraOutput = document.querySelector("#camera--output");
 
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
