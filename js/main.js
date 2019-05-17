@@ -229,7 +229,7 @@ function initCameraStream() {
 
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
-  alert('Img0500');
+  alert('Img0513');
   const video = document.querySelector("#video");
   // const canvas = document.querySelector("#camera--sensor");
   // const canvas = document.createElement('canvas')
@@ -273,16 +273,16 @@ function takeSnapshot() {
    /*
    * 接著這個 file就可以被 FromData使用
    */
-  //  const formData = new FormData();
-  //  formData.append('file', file, 'test.png')
-  //     xhr = new XMLHttpRequest();
-  //       xhr.open("POST", "ftp://file.stantex.com.tw/QCWEB/", true);
-  //       xhr.onreadystatechange = function() {
-  //           if (xhr.readyState == 4) {
-  //               alert(xhr.responseText);
-  //           }
-  //       };
-  //       xhr.send(formData);
+   const formData = new FormData();
+   formData.append('file', file, 'test.png')
+      xhr = new XMLHttpRequest();
+        xhr.open("POST", "ftp://file.stantex.com.tw/QCWEB/", true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4) {
+                alert(xhr.responseText);
+            }
+        };
+        xhr.send(formData);
         
 
        // ["file", [object File] {
@@ -311,14 +311,6 @@ function uploadFile() {
   alert('Img1200');
   const canvas = document.getElementById("camera--sensor");
   const cameraOutput = document.querySelector("#camera--output");
-  const cameraOutput = document.querySelector("#camera--output2");
-  canvas.width = cameraOutput.videoWidth;
-  canvas.height = cameraOutput.videoHeight;
-  canvas.getContext("2d").drawImage(cameraOutput, 0, 0);
-  //take a picture
-  cameraOutput.src = canvas.toDataURL("image/jpeg"); //另存圖片
-  cameraOutput.classList.add("taken");
-
 
   file = cameraOutput.files[0];
   alert("file=" + file )
