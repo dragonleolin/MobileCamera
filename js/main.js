@@ -229,10 +229,7 @@ function initCameraStream() {
 
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
-<<<<<<< HEAD
-=======
-  alert('Img0513');
->>>>>>> parent of cbe1852... img
+  alert('Img0600');
   const video = document.querySelector("#video");
   // const canvas = document.querySelector("#camera--sensor");
   // const canvas = document.createElement('canvas')
@@ -242,15 +239,17 @@ function takeSnapshot() {
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
   canvas.getContext("2d").drawImage(video, 0, 0);
-
   //take a picture
-  cameraOutput.src = canvas.toDataURL("image/jpeg");
+  cameraOutput.src = canvas.toDataURL("image/jpeg"); //另存圖片
   cameraOutput.classList.add("taken");
-  alert("takecameraOutput.srcn: " + typeof(cameraOutput.src))
-  // uploadImage(cameraOutput.src);
 
-<<<<<<< HEAD
-=======
+
+  
+  var base64String;
+  base64String = cameraOutput.src.substr(22); //取得base64字串
+  // uploadImage(cameraOutput.src);
+  
+
  //取出資料並使用atob將資料轉為base64的字串
  const blobBin = atob(cameraOutput.src.split(',')[1]);
  // 取得 mine
@@ -274,16 +273,16 @@ function takeSnapshot() {
    /*
    * 接著這個 file就可以被 FromData使用
    */
-   const formData = new FormData();
-   formData.append('file', file, 'test.png')
-      xhr = new XMLHttpRequest();
-        xhr.open("POST", "ftp://file.stantex.com.tw/QCWEB/", true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4) {
-                alert(xhr.responseText);
-            }
-        };
-        xhr.send(formData);
+  //  const formData = new FormData();
+  //  formData.append('file', file, 'test.png')
+  //     xhr = new XMLHttpRequest();
+  //       xhr.open("POST", "ftp://file.stantex.com.tw/QCWEB/", true);
+  //       xhr.onreadystatechange = function() {
+  //           if (xhr.readyState == 4) {
+  //               alert(xhr.responseText);
+  //           }
+  //       };
+  //       xhr.send(formData);
         
 
        // ["file", [object File] {
@@ -295,7 +294,6 @@ function takeSnapshot() {
        //   type: "image/png",
        //   webkitRelativePath: ""
        // }]
->>>>>>> parent of cbe1852... img
 
 
   //保存canvas標籤裡的圖片並且按規則重新命名
@@ -306,81 +304,60 @@ function takeSnapshot() {
   //        var r = type.match(/png|jpeg|bmp|gif/)[0];
   //        return 'image/' + r;
   //    };
+
 }
 
 function uploadFile() {
-  alert('uploadFile');
-  alert('1')
-  const canvas = document.getElementById("camera--sensor");
-  alert('2')
-  cameraOutput.src = canvas.toDataURL("image/jpeg");
-  alert('3')
+  alert('Img0600');
+
+  file = cameraOutput.files[0];
+  alert("file=" + file )
+  if(!file)
+    return alert("please select a file")
+
+  // alert('canvas=' + canvas + '--' + typeof(canvas))
+  var img = new Image();
+
   
-  alert('cameraOutput.src: ' + typeof(cameraOutput.src));
-  //取出資料並使用atob將資料轉為base64的字串
-  const blobBin = atob(cameraOutput.src.split(',')[1]);
-  console.log(blobBin);
+  img.onload = function () {
+      canvas.width = this.width
+      canvas.height = this.height
+      ctx.drawImage(this, 0, 0, canvas.width, canvas.height)
+      URL.revokeObjectURL(src)
+  }
+  
+  var file = this.files[0];
+  alert('file=' + file)
+  alert('1' )
+  var src = URL.createObjectURL(file);
+  
+  img.src = src;
+  alert('img.src=' + img.src)
 
-  // 取得 mine
-  const mime = cameraOutput.src.split(',')[0].split(':')[1].split(';')[0]
-  console.log(mime)   // "image/png"
 
-  //建立一個array容器放charCode
-  const array = [];
-  for (let i=0; i < blobBin.length; i++) {
-      array.push(blobBin.charCodeAt(i));
+
+
+
+ 
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "ftp://file.stantex.com.tw/QCWEB/",
+    "method": "POST",
+    "headers": {
+      "Authorization": "Client-ID {{clientId}}"
+    },
+    "processData": false,
+    "contentType": false,
+    "mimeType": "image/jpeg",
+    "data": img.src,
   }
 
-  // 將基礎arr 轉為 ArrayBuffer (usign integer 8): Uint8Array
-    const u8 = new Uint8Array(arr)
-    const file = new Blob([u8], { type: mime })
-    console.log(file)
-    // [object Blob] {
-    //   size: 3860,
-    //   slice: function slice() { [native code] },
-    //   type: "image/png"
-    // }
-
-    /*
-    * 接著這個 file就可以被 FromData使用
-    */
-
-    alert("file: ", file)
-    const formData = new FormData()
-    formData.append('file', file, 'test.png')
-    alert("upload success")
-    for(let field of formData) {
-      var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://console.firebase.google.com/project/project-d4e29/database/project-d4e29/data/image",
-        "method": "POST",
-        "headers": {
-          "Authorization": "Client-ID {{clientId}}"
-        },
-        "processData": false,
-        "contentType": false,
-        "mimeType": "multipart/form-data",
-        "data": form,
-      }
-
-      $.ajax(settings).done(function (response) {
-        // get respon string type json
-        var res = JSON.parse(response);
-        console.log(res.data.link);
-      });
-
-
-    }
-        // ["file", [object File] {
-        //   lastModified: 1514901149956,
-        //   lastModifiedDate: [object Date] { ... },
-        //   name: "test.png",
-        //   size: 3860,
-        //   slice: function slice() { [native code] },
-        //   type: "image/png",
-        //   webkitRelativePath: ""
-        // }]
+  $.ajax(settings).done(function (response) {
+    // get respon string type json
+    var res = JSON.parse(response);
+    console.log(res.data.link);
+  });
 
 
 }
