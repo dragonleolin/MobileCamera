@@ -233,9 +233,7 @@ var canvas = document.getElementById("camera--sensor");
 var cameraOutput = document.querySelector("#camera--output");
 
 function takeSnapshot() {
-  alert('Img0208');
-
-
+  alert('Img0321');
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
   canvas.getContext("2d").drawImage(video, 0, 0);
@@ -248,11 +246,18 @@ function takeSnapshot() {
   var base64String;
   base64String = cameraOutput.src.substr(22); //取得base64字串
   alert('base64String=' + base64String)
-  
-  uploadImage(base64String);
+
+}
+
+function uploadFile() {
+  alert('upload0321');
+  cameraOutput.src = canvas.toDataURL("image/jpeg"); 
+  var base64String;
+  base64String = cameraOutput.src.substr(22); //取得base64字串
+  alert('base64String = ' + base64String)
 
  //取出資料並使用atob將資料轉為base64的字串
- const blobBin = atob(cameraOutput.src.split(',')[1]);
+//  const blobBin = atob(cameraOutput.src.split(',')[1]);
  // 取得 mine
  const mime = cameraOutput.src.split(',')[0].split(':')[1].split(';')[0]
 //  alert('4')
@@ -263,41 +268,37 @@ function takeSnapshot() {
  }
 //  alert('5')
  const file = new Blob([new Uint8Array(array)], { type: 'image/png' })
-  //  alert('file=' + file);
-  //  alert('6')
-   // [object Blob] {
-   //   size: 3860,
-   //   slice: function slice() { [native code] },
-   //   type: "image/png"
-   // }
 
-   /*
-   * 接著這個 file就可以被 FromData使用
-   */
-  //  const formData = new FormData();
-  //  formData.append('file', file, 'test.png')
-  //     xhr = new XMLHttpRequest();
-  //       xhr.open("POST", "ftp://file.stantex.com.tw/QCWEB/", true);
-  //       xhr.onreadystatechange = function() {
-  //           if (xhr.readyState == 4) {
-  //               alert(xhr.responseText);
-  //           }
-  //       };
-  //       xhr.send(formData);
-        
+ 
+  var settings = {
+    "async": false,
+    "crossDomain": true,
+    "url": "https://api.imgur.com/3/image",
+    "method": "POST",
+    "headers": {
+      Authorization: 'Bearer' + '5ff8f75d6a5ec262e2770f18951de4f397c83415'
+    },
+    "processData": false,
+    "contentType": false,
+    "mimeType": "image/jpeg",
+  }
+  let form = new FormData();
+  form.append('image', this.file);
+  form.append('title', this.title);
+  form.append('description', this.des);
+  form.append('album', album)
 
-       // ["file", [object File] {
-       //   lastModified: 1514901149956,
-       //   lastModifiedDate: [object Date] { ... },
-       //   name: "test.png",
-       //   size: 3860,
-       //   slice: function slice() { [native code] },
-       //   type: "image/png",
-       //   webkitRelativePath: ""
-       // }]
+  settings.data = form;
+
+  $.ajax(settings).done(function (response) {
+    // get respon string type json
+    var res = JSON.parse(response);
+    alert('上傳完成，稍待一會兒就可以在底部的列表上看見了。')
+  });
 
 
-  //保存canvas標籤裡的圖片並且按規則重新命名
+
+    //保存canvas標籤裡的圖片並且按規則重新命名
   //     var type = 'png';
 
   //     var _fixType = function(type) {
@@ -305,67 +306,6 @@ function takeSnapshot() {
   //        var r = type.match(/png|jpeg|bmp|gif/)[0];
   //        return 'image/' + r;
   //    };
-
-}
-
-function uploadFile() {
-  alert('upload0208');
-  cameraOutput.src = canvas.toDataURL("image/jpeg"); 
-  var base64String;
-  base64String = cameraOutput.src.substr(22); //取得base64字串
-  alert('base64String = ' + base64String)
-
-
-  file = cameraOutput.files[0];
-  alert("file=" + file )
-  if(!file)
-    return alert("please select a file")
-
-  // alert('canvas=' + canvas + '--' + typeof(canvas))
-  var img = new Image();
-
-  
-  img.onload = function () {
-      canvas.width = this.width
-      canvas.height = this.height
-      ctx.drawImage(this, 0, 0, canvas.width, canvas.height)
-      URL.revokeObjectURL(src)
-  }
-  
-  var file = this.files[0];
-  alert('file=' + file)
-  alert('1' )
-  var src = URL.createObjectURL(file);
-  
-  img.src = src;
-  alert('img.src=' + img.src)
-
-
-
-
-
- 
-  var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "ftp://file.stantex.com.tw/QCWEB/",
-    "method": "POST",
-    "headers": {
-      "Authorization": "Client-ID {{clientId}}"
-    },
-    "processData": false,
-    "contentType": false,
-    "mimeType": "image/jpeg",
-    "data": img.src,
-  }
-
-  $.ajax(settings).done(function (response) {
-    // get respon string type json
-    var res = JSON.parse(response);
-    console.log(res.data.link);
-  });
-
-
 }
 
 
