@@ -229,7 +229,7 @@ function initCameraStream() {
 
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
-  alert('Img1125');
+  alert('Img1144');
   var video = document.querySelector("#video");
   var canvas = document.getElementById("camera--sensor");
   var cameraOutput = document.querySelector("#camera--output");
@@ -246,7 +246,8 @@ function takeSnapshot() {
   var base64String;
   base64String = cameraOutput.src.substr(22); //取得base64字串
   // uploadImage(cameraOutput.src);
-  return base64String;
+  
+  uploadImage(base64String);
 
  //取出資料並使用atob將資料轉為base64的字串
  const blobBin = atob(cameraOutput.src.split(',')[1]);
@@ -306,7 +307,7 @@ function takeSnapshot() {
 }
 
 function uploadFile(base64String) {
-  alert('upload1125');
+  alert('upload1144');
   alert('base64String = ' + base64String)
 
 
