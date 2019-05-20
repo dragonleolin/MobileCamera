@@ -70,7 +70,9 @@ function initCameraUI() {
     takeSnapshot();
   });
 
-  uploadImage.addEventListener("click", uploadFile);
+  uploadImage.addEventListener("click", function() {
+    uploadFile();
+  });
 
     // 下载后的文件名规则filename
     // var filename = (new Date()).getTime() + '.' + type;
@@ -227,7 +229,7 @@ function initCameraStream() {
 
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
-  alert('Img0934');
+  alert('Img1125');
   var video = document.querySelector("#video");
   var canvas = document.getElementById("camera--sensor");
   var cameraOutput = document.querySelector("#camera--output");
@@ -304,7 +306,7 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
-  alert('upload1122');
+  alert('upload1125');
 
 
 
