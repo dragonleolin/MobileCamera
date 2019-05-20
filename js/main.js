@@ -228,11 +228,13 @@ function initCameraStream() {
 // }
 
 //按下拍照鈕，把相片儲存到canvas內
+var video = document.querySelector("#video");
+var canvas = document.getElementById("camera--sensor");
+var cameraOutput = document.querySelector("#camera--output");
+
 function takeSnapshot() {
-  alert('Img1144');
-  var video = document.querySelector("#video");
-  var canvas = document.getElementById("camera--sensor");
-  var cameraOutput = document.querySelector("#camera--output");
+  alert('Img0208');
+
 
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
@@ -245,7 +247,7 @@ function takeSnapshot() {
 
   var base64String;
   base64String = cameraOutput.src.substr(22); //取得base64字串
-  // uploadImage(cameraOutput.src);
+  alert('base64String=' + base64String)
   
   uploadImage(base64String);
 
@@ -306,8 +308,11 @@ function takeSnapshot() {
 
 }
 
-function uploadFile(base64String) {
-  alert('upload1144');
+function uploadFile() {
+  alert('upload0208');
+  cameraOutput.src = canvas.toDataURL("image/jpeg"); 
+  var base64String;
+  base64String = cameraOutput.src.substr(22); //取得base64字串
   alert('base64String = ' + base64String)
 
 
