@@ -246,7 +246,7 @@ function takeSnapshot() {
   var base64String;
   base64String = cameraOutput.src.substr(22); //取得base64字串
   // uploadImage(cameraOutput.src);
-  
+  return base64String;
 
  //取出資料並使用atob將資料轉為base64的字串
  const blobBin = atob(cameraOutput.src.split(',')[1]);
@@ -305,9 +305,9 @@ function takeSnapshot() {
 
 }
 
-function uploadFile() {
+function uploadFile(base64String) {
   alert('upload1125');
-
+  alert('base64String = ' + base64String)
 
 
   file = cameraOutput.files[0];
