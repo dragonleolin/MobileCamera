@@ -229,7 +229,7 @@ function initCameraStream() {
 
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
-  alert('Img0600');
+  alert('Img0934');
   const video = document.querySelector("#video");
   // const canvas = document.querySelector("#camera--sensor");
   // const canvas = document.createElement('canvas')
@@ -244,8 +244,7 @@ function takeSnapshot() {
   cameraOutput.classList.add("taken");
 
 
-  
-  var base64String;
+    var base64String;
   base64String = cameraOutput.src.substr(22); //取得base64字串
   // uploadImage(cameraOutput.src);
   
@@ -308,7 +307,7 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
-  alert('Img0600');
+  alert('Img0934');
 
   file = cameraOutput.files[0];
   alert("file=" + file )
