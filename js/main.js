@@ -70,7 +70,7 @@ function initCameraUI() {
     takeSnapshot();
   });
 
-  uploadImage.addEventListener("click", uploadFile(e), false);
+  uploadImage.addEventListener("click", uploadFile);
 
     // 下载后的文件名规则filename
     // var filename = (new Date()).getTime() + '.' + type;
@@ -303,10 +303,8 @@ function takeSnapshot() {
 
 }
 
-function uploadFile(e) {
-  alert('upload1106');
-
-  alert(e.target.files)
+function uploadFile() {
+  alert('upload1122');
 
 
 
