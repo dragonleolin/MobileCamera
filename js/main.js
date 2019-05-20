@@ -233,7 +233,7 @@ var canvas = document.getElementById("camera--sensor");
 var cameraOutput = document.querySelector("#camera--output");
 
 function takeSnapshot() {
-  alert('Img0321');
+  alert('Img0348');
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
   canvas.getContext("2d").drawImage(video, 0, 0);
@@ -250,7 +250,7 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
-  alert('upload0321');
+  alert('upload0348');
   cameraOutput.src = canvas.toDataURL("image/jpeg"); 
   var base64String;
   base64String = cameraOutput.src.substr(22); //取得base64字串
@@ -266,8 +266,42 @@ function uploadFile() {
  for (let i=0; i < blobBin.length; i++) {
      array.push(blobBin.charCodeAt(i));
  }
-//  alert('5')
+ alert('5')
  const file = new Blob([new Uint8Array(array)], { type: 'image/png' })
+  //  alert('file=' + file);
+   alert('6')
+   // [object Blob] {
+   //   size: 3860,
+   //   slice: function slice() { [native code] },
+   //   type: "image/png"
+   // }
+
+   /*
+   * 接著這個 file就可以被 FromData使用
+   */
+   const formData = new FormData();
+   formData.append('file', file, 'test.png')
+   alert('7')
+  //     xhr = new XMLHttpRequest();
+  //       xhr.open("POST", "ftp://file.stantex.com.tw/QCWEB/", true);
+  //       xhr.onreadystatechange = function() {
+  //           if (xhr.readyState == 4) {
+  //               alert(xhr.responseText);
+  //           }
+  //       };
+  //       xhr.send(formData);
+        settings.data = formData;
+        alert('8')
+
+       // ["file", [object File] {
+       //   lastModified: 1514901149956,
+       //   lastModifiedDate: [object Date] { ... },
+       //   name: "test.png",
+       //   size: 3860,
+       //   slice: function slice() { [native code] },
+       //   type: "image/png",
+       //   webkitRelativePath: ""
+       // }]
 
  
   var settings = {
@@ -276,26 +310,19 @@ function uploadFile() {
     "url": "https://api.imgur.com/3/image",
     "method": "POST",
     "headers": {
-      Authorization: 'Bearer' + '5ff8f75d6a5ec262e2770f18951de4f397c83415'
+      Authorization : "Bearer" + '5ff8f75d6a5ec262e2770f18951de4f397c83415'
     },
     "processData": false,
     "contentType": false,
     "mimeType": "image/jpeg",
   }
-  let form = new FormData();
-  form.append('image', this.file);
-  form.append('title', this.title);
-  form.append('description', this.des);
-  form.append('album', album)
-
-  settings.data = form;
-
+  alert('9')
   $.ajax(settings).done(function (response) {
     // get respon string type json
     var res = JSON.parse(response);
-    alert('上傳完成，稍待一會兒就可以在底部的列表上看見了。')
+    alert(res.data.link);
   });
-
+  alert('10')
 
 
     //保存canvas標籤裡的圖片並且按規則重新命名
