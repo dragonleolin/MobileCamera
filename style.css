@@ -69,6 +69,12 @@ button, input {
     z-index: 2;
 }
 
+input[type=file].hidden {
+    visibility: hidden;
+    width: 15rem;
+    margin-left: -15rem;
+  }
+
 
 option {
    background-color: black; 

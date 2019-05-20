@@ -70,9 +70,7 @@ function initCameraUI() {
     takeSnapshot();
   });
 
-  uploadImage.addEventListener("click", function(){
-    uploadFile()
-  });
+  uploadImage.addEventListener("click", uploadFile(e), false);
 
     // 下载后的文件名规则filename
     // var filename = (new Date()).getTime() + '.' + type;
@@ -230,11 +228,9 @@ function initCameraStream() {
 //按下拍照鈕，把相片儲存到canvas內
 function takeSnapshot() {
   alert('Img0934');
-  const video = document.querySelector("#video");
-  // const canvas = document.querySelector("#camera--sensor");
-  // const canvas = document.createElement('canvas')
-  const canvas = document.getElementById("camera--sensor");
-  const cameraOutput = document.querySelector("#camera--output");
+  var video = document.querySelector("#video");
+  var canvas = document.getElementById("camera--sensor");
+  var cameraOutput = document.querySelector("#camera--output");
 
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
@@ -243,8 +239,9 @@ function takeSnapshot() {
   cameraOutput.src = canvas.toDataURL("image/jpeg"); //另存圖片
   cameraOutput.classList.add("taken");
 
+  
 
-    var base64String;
+  var base64String;
   base64String = cameraOutput.src.substr(22); //取得base64字串
   // uploadImage(cameraOutput.src);
   
@@ -306,8 +303,12 @@ function takeSnapshot() {
 
 }
 
-function uploadFile() {
-  alert('Img0934');
+function uploadFile(e) {
+  alert('upload1106');
+
+  alert(e.target.files)
+
+
 
   file = cameraOutput.files[0];
   alert("file=" + file )
