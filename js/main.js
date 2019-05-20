@@ -233,7 +233,7 @@ var canvas = document.getElementById("camera--sensor");
 var cameraOutput = document.querySelector("#camera--output");
 
 function takeSnapshot() {
-  alert('Img0353');
+  alert('Img0405');
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
   canvas.getContext("2d").drawImage(video, 0, 0);
@@ -245,16 +245,16 @@ function takeSnapshot() {
 
   var base64String;
   base64String = cameraOutput.src.substr(22); //取得base64字串
-  alert('base64String=' + base64String)
+  // alert('base64String=' + base64String)
 
 }
 
 function uploadFile() {
-  alert('upload0353');
+  alert('upload0405');
   cameraOutput.src = canvas.toDataURL("image/jpeg"); 
   var base64String;
   base64String = cameraOutput.src.substr(22); //取得base64字串
-  alert('base64String = ' + base64String)
+  // alert('base64String = ' + base64String)
 
  //取出資料並使用atob將資料轉為base64的字串
  const blobBin = atob(cameraOutput.src.split(',')[1]);
@@ -290,8 +290,7 @@ function uploadFile() {
   //           }
   //       };
   //       xhr.send(formData);
-        settings.data = formData;
-        alert('8')
+
 
        // ["file", [object File] {
        //   lastModified: 1514901149956,
@@ -316,6 +315,8 @@ function uploadFile() {
     "contentType": false,
     "mimeType": "image/jpeg",
   }
+
+  
   alert('9')
   $.ajax(settings).done(function (response) {
     // get respon string type json
