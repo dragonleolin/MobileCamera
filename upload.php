@@ -1,22 +1,10 @@
-<?php
-if(is_array($_FILES)) {
-if(is_uploaded_file($_FILES['userImage']['tmp_name'])) {
-$sourcePath = $_FILES['userImage']['tmp_name'];
-$targetPath = "images/".$_FILES['userImage']['name'];
-if(move_uploaded_file($sourcePath,$targetPath)) {
-?>
-<img class="camera--output" src="<?php echo $targetPath; ?>"  />
-<?php
-}
-}
-}
-?>
+
 
 <?php
 $host = '61.221.169.237';
 $user = 'QCUL';
 $pwd = 'stx308';
-$port = '20';
+// $port = '20';
 // 進行ftp連線，根據port是否設定，傳遞的引數會不同
 if(empty($port)){
 $f_conn = ftp_connect($host);
@@ -64,14 +52,19 @@ exit(1);
 }else{
 echo "chdir $dir_name success\n";
 }
-// 進行檔案上傳
-$result = ftp_put($f_conn, 'bbb.mp3', '/root/liang/ftp/bbb.mp3', FTP_BINARY);
-if(!$result){
-echo "upload file fail\n";
-exit(1);
-}else{
-echo "upload file success\n";
-exit(0);
-}
 
+?>
+// 進行檔案上傳
+<?php
+if(is_array($_FILES)) {
+if(is_uploaded_file($_FILES['userImage']['tmp_name'])) {
+$sourcePath = $_FILES['userImage']['tmp_name'];
+$targetPath = "images/".$_FILES['userImage']['name'];
+if(move_uploaded_file($sourcePath,$targetPath)) {
+?>
+<img class="camera--output" src="<?php echo $targetPath; ?>"  />
+<?php
+}
+}
+}
 ?>
