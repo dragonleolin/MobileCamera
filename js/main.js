@@ -279,8 +279,8 @@ function uploadFile() {
    /*
    * 接著這個 file就可以被 FromData使用
    */
-   const formData = new FormData();
-   formData.append('file', file, 'test.png')
+   const Data = new FormData();
+  //  formData.append('file', file, 'test.png')
    alert('7')
   //     xhr = new XMLHttpRequest();
   //       xhr.open("POST", "ftp://file.stantex.com.tw/QCWEB/", true);
@@ -302,28 +302,43 @@ function uploadFile() {
        //   webkitRelativePath: ""
        // }]
 
+
+       $.ajax({
+        url: "upload.php",
+        data: Data,
+        type:"POST",
+        dataType:'image/png',
+
+        success: function(message){
+            document.getElementById("container").innerHTML=message;
+        },
+
+        error:   function(jqXHR, textStatus, errorThrown){ 
+            document.getElementById("container").innerHTML=errorThrown; 
+        }
+    }); 
  
-  var settings = {
-    "async": false,
-    "crossDomain": true,
-    "url": "https://api.imgur.com/3/image",
-    "method": "POST",
-    "headers": {
-      Authorization : "Bearer" + '5ff8f75d6a5ec262e2770f18951de4f397c83415'
-    },
-    "processData": false,
-    "contentType": false,
-    "mimeType": "image/jpeg",
-  }
+  // var settings = {
+  //   "async": false,
+  //   "crossDomain": true,
+  //   "url": "https://api.imgur.com/3/image",
+  //   "method": "POST",
+  //   "headers": {
+  //     Authorization : "Bearer" + '5ff8f75d6a5ec262e2770f18951de4f397c83415'
+  //   },
+  //   "processData": false,
+  //   "contentType": false,
+  //   "mimeType": "image/jpeg",
+  // }
 
   
-  alert('9')
-  $.ajax(settings).done(function (response) {
-    // get respon string type json
-    var res = JSON.parse(response);
-    alert(res.data.link);
-  });
-  alert('10')
+  // alert('9')
+  // $.ajax(settings).done(function (response) {
+  //   // get respon string type json
+  //   var res = JSON.parse(response);
+  //   alert(res.data.link);
+  // });
+  // alert('10')
 
 
     //保存canvas標籤裡的圖片並且按規則重新命名
