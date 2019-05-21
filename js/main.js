@@ -308,6 +308,9 @@ function uploadFile() {
         data: Data,
         type:"POST",
         dataType:'multipart/form-data',
+        contentType: false,
+        cache: false,
+        processData:false,
 
         success: function(message){
             document.getElementById("uploadImage").innerHTML=message;
