@@ -233,7 +233,7 @@ var canvas = document.getElementById("camera--sensor");
 var cameraOutput = document.querySelector("#camera--output");
 
 function takeSnapshot() {
-  alert('Img1151');
+  alert('Img1157');
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
   canvas.getContext("2d").drawImage(video, 0, 0);
@@ -250,7 +250,7 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
-  alert('upload1151');
+  alert('upload1157');
   cameraOutput.src = canvas.toDataURL("image/jpeg"); 
   var base64String;
   base64String = cameraOutput.src.substr(22); //取得base64字串
@@ -260,16 +260,16 @@ function uploadFile() {
  const blobBin = atob(cameraOutput.src.split(',')[1]);
  // 取得 mine
  const mime = cameraOutput.src.split(',')[0].split(':')[1].split(';')[0]
- alert('4')
+//  alert('4')
  //建立一個array容器放charCode
  const array = [];
  for (let i=0; i < blobBin.length; i++) {
      array.push(blobBin.charCodeAt(i));
  }
- alert('5')
+//  alert('5')
  const file = new Blob([new Uint8Array(array)], { type: 'image/png' })
   //  alert('file=' + file);
-   alert('6')
+  //  alert('6')
    // [object Blob] {
    //   size: 3860,
    //   slice: function slice() { [native code] },
@@ -302,12 +302,12 @@ function uploadFile() {
        //   webkitRelativePath: ""
        // }]
 
-
+      alert('8')
        $.ajax({
         url: "upload.php",
         data: Data,
         type:"POST",
-        dataType:'image/png',
+        dataType:'multipart/form-data',
 
         success: function(message){
             document.getElementById("container").innerHTML=message;
@@ -317,7 +317,7 @@ function uploadFile() {
             document.getElementById("container").innerHTML=errorThrown; 
         }
     }); 
- 
+    alert('9')
   // var settings = {
   //   "async": false,
   //   "crossDomain": true,
