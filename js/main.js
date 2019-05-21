@@ -233,7 +233,7 @@ var canvas = document.getElementById("camera--sensor");
 var cameraOutput = document.querySelector("#camera--output");
 
 function takeSnapshot() {
-  alert('Img0218');
+  alert('Img0253');
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
   canvas.getContext("2d").drawImage(video, 0, 0);
@@ -250,7 +250,7 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
-  alert('upload0218');
+  alert('upload0253');
   cameraOutput.src = canvas.toDataURL("image/jpeg"); 
   var base64String;
   base64String = cameraOutput.src.substr(22); //取得base64字串
@@ -306,7 +306,7 @@ function uploadFile() {
        $.ajax({
         url: "upload.php",
         data: Data,
-        type:"POST",
+        type:"GET",
         dataType:'multipart/form-data',
         contentType: false,
         cache: false,
