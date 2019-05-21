@@ -233,7 +233,7 @@ var canvas = document.getElementById("camera--sensor");
 var cameraOutput = document.querySelector("#camera--output");
 
 function takeSnapshot() {
-  alert('Img1157');
+  alert('Img1223');
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
   canvas.getContext("2d").drawImage(video, 0, 0);
@@ -250,7 +250,7 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
-  alert('upload1157');
+  alert('upload1223');
   cameraOutput.src = canvas.toDataURL("image/jpeg"); 
   var base64String;
   base64String = cameraOutput.src.substr(22); //取得base64字串
@@ -279,7 +279,7 @@ function uploadFile() {
    /*
    * 接著這個 file就可以被 FromData使用
    */
-   const Data = new FormData();
+   const FormData = new FormData();
   //  formData.append('file', file, 'test.png')
    alert('7')
   //     xhr = new XMLHttpRequest();
@@ -303,20 +303,24 @@ function uploadFile() {
        // }]
 
       alert('8')
-       $.ajax({
-        url: "upload.php",
-        data: Data,
-        type:"POST",
-        dataType:'multipart/form-data',
-
-        success: function(message){
-            document.getElementById("container").innerHTML=message;
-        },
-
-        error:   function(jqXHR, textStatus, errorThrown){ 
-            document.getElementById("container").innerHTML=errorThrown; 
-        }
-    }); 
+      $(document).ready(function (e){
+        $("uploadImage").on('submit',(function(e){
+            e.preventDefault();
+            $.ajax({
+                url: "upload.php",
+                type: "POST",
+                data:  FormData,
+                contentType: false,
+                cache: false,
+                processData:false,
+                success: function(data){
+                    $("#targetLayer").html(data);
+                },
+                error: function(){
+                }               
+            });
+        }));
+    });
     alert('9')
   // var settings = {
   //   "async": false,
