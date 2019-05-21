@@ -233,7 +233,7 @@ var canvas = document.getElementById("camera--sensor");
 var cameraOutput = document.querySelector("#camera--output");
 
 function takeSnapshot() {
-  alert('Img1223');
+  alert('Img1228');
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
   canvas.getContext("2d").drawImage(video, 0, 0);
@@ -250,7 +250,7 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
-  alert('upload1223');
+  alert('upload1228');
   cameraOutput.src = canvas.toDataURL("image/jpeg"); 
   var base64String;
   base64String = cameraOutput.src.substr(22); //取得base64字串
@@ -303,9 +303,6 @@ function uploadFile() {
        // }]
 
       alert('8')
-      $(document).ready(function (e){
-        $("uploadImage").on('submit',(function(e){
-            e.preventDefault();
             $.ajax({
                 url: "upload.php",
                 type: "POST",
@@ -319,8 +316,6 @@ function uploadFile() {
                 error: function(){
                 }               
             });
-        }));
-    });
     alert('9')
   // var settings = {
   //   "async": false,
