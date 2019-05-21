@@ -16,7 +16,7 @@ if(move_uploaded_file($sourcePath,$targetPath)) {
 $host = '61.221.169.237';
 $user = 'QCUL';
 $pwd = 'stx308';
-$port = '21';
+$port = '20';
 // 進行ftp連線，根據port是否設定，傳遞的引數會不同
 if(empty($port)){
 $f_conn = ftp_connect($host);
