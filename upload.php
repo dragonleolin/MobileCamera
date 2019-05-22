@@ -1,27 +1,10 @@
-<?php
-//allowed file types
-$arr_file_types = ['image/png', 'image/gif', 'image/jpg', 'image/jpeg'];
- 
-if (!(in_array($_FILES['file']['type'], $arr_file_types))) {
-    echo "false";
-    return;
-}
- 
-if (!file_exists('uploads')) {
-    mkdir('uploads', 0777);
-}
- 
-move_uploaded_file($_FILES['file']['tmp_name'], 'uploads/' . $_FILES['file']['name']);
- 
-echo "success";
-die();
-?>
+
 
 <?php
 $host = '61.221.169.237';
 $user = 'QCUL';
 $pwd = 'stx308';
-// $port = '20';
+$port = '20';
 // 進行ftp連線，根據port是否設定，傳遞的引數會不同
 if(empty($port)){
 $f_conn = ftp_connect($host);
