@@ -233,7 +233,7 @@ var canvas = document.getElementById("camera--sensor");
 var cameraOutput = document.querySelector("#camera--output");
 
 function takeSnapshot() {
-  alert('Img0430');
+  alert('Img0151');
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
   canvas.getContext("2d").drawImage(video, 0, 0);
@@ -250,7 +250,7 @@ function takeSnapshot() {
 }
 
 function uploadFile() {
-  alert('upload0430');
+  alert('upload0151');
   cameraOutput.src = canvas.toDataURL("image/jpeg"); 
   var base64String;
   base64String = cameraOutput.src.substr(22); //取得base64字串
@@ -280,7 +280,7 @@ function uploadFile() {
    * 接著這個 file就可以被 FromData使用
    */
    const Data = new FormData();
-  //  formData.append('file', file, 'test.png')
+   Data.append('file', file, 'test.png')
    alert('7')
   //     xhr = new XMLHttpRequest();
   //       xhr.open("POST", "ftp://file.stantex.com.tw/QCWEB/", true);
@@ -304,17 +304,28 @@ function uploadFile() {
 
       alert('8')
        $.ajax({
-        url: "upload.php",
-        data: Data,
-        type:"POST",
-        dataType:'multipart/form-data',
-        contentType: false,
-        cache: false,
-        processData:false,
+        url: "upload.php",  // Url to which the request is send
+        data: Data,         // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+        type:"POST",        // Type of request to be send, called as method
+        // dataType:'multipart/form-data',
+        contentType: false, // The content type used when sending data to the server.
+        cache: false,       // To unable request pages to be cached
+        processData:false,  // To send DOMDocument or non processed data file it is set to false
 
-
+        success:function(response) {
+          if(response == 'success') {
+              alert('File uploaded successfully.');
+          } else if(response == 'false') {
+              alert('Invalid file type.');
+          } else {
+              alert('Something went wrong. Please try again.');
+          }
+          alert('9')
+          $('.image').val('');
+      }
     }); 
-    alert('9')
+
+    alert('10')
   // var settings = {
   //   "async": false,
   //   "crossDomain": true,

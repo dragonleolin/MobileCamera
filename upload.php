@@ -1,4 +1,21 @@
-
+<?php
+//allowed file types
+$arr_file_types = ['image/png', 'image/gif', 'image/jpg', 'image/jpeg'];
+ 
+if (!(in_array($_FILES['file']['type'], $arr_file_types))) {
+    echo "false";
+    return;
+}
+ 
+if (!file_exists('uploads')) {
+    mkdir('uploads', 0777);
+}
+ 
+move_uploaded_file($_FILES['file']['tmp_name'], 'uploads/' . $_FILES['file']['name']);
+ 
+echo "success";
+die();
+?>
 
 <?php
 $host = '61.221.169.237';
@@ -52,19 +69,14 @@ exit(1);
 }else{
 echo "chdir $dir_name success\n";
 }
-
-?>
 // 進行檔案上傳
-<?php
-if(is_array($_FILES)) {
-if(is_uploaded_file($_FILES['userImage']['tmp_name'])) {
-$sourcePath = $_FILES['userImage']['tmp_name'];
-$targetPath = "images/".$_FILES['userImage']['name'];
-if(move_uploaded_file($sourcePath,$targetPath)) {
-?>
-<img class="camera--output" src="<?php echo $targetPath; ?>"  />
-<?php
+$result = ftp_put($f_conn, 'test.png', '/root/liang/ftp/test.png', FTP_BINARY);
+if(!$result){
+echo "upload file fail\n";
+exit(1);
+}else{
+echo "upload file success\n";
+exit(0);
 }
-}
-}
+
 ?>
