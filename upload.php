@@ -1,10 +1,10 @@
 
 
 <?php
-$host = '61.221.169.237';
+$host = 'ftp://file.stantex.com.tw';
 $user = 'QCUL';
 $pwd = 'stx308';
-$port = '20';
+// $port = '20';
 // 進行ftp連線，根據port是否設定，傳遞的引數會不同
 if(empty($port)){
 $f_conn = ftp_connect($host);
