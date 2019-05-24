@@ -15,21 +15,8 @@
         <video id="video" autoplay playsinline></video>
         <div id="video_overlay"></div> 
 
-        <?php
-        if(is_array($_FILES)) {
-        if(is_uploaded_file($_FILES['userImage']['tmp_name'])) {
-        $sourcePath = $_FILES['userImage']['tmp_name'];
-        $targetPath = "images/".$_FILES['userImage']['name'];
-        if(move_uploaded_file($sourcePath,$targetPath)) {
-        ?>
         <!-- Camera output src="//:1" -->
-        <img  alt="" id="camera--output" src="<?php echo $targetPath; ?>">
-        <?php
-          }
-          }
-          }
-          ?>
-
+        <img  alt="" id="camera--output">
         <!-- Camera sensor -->
         <canvas #canvas id="camera--sensor"></canvas>
     </div>
