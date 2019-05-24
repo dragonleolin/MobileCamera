@@ -15,9 +15,21 @@
         <video id="video" autoplay playsinline></video>
         <div id="video_overlay"></div> 
 
-        
+        <?php
+        if(is_array($_FILES)) {
+        if(is_uploaded_file($_FILES['userImage']['tmp_name'])) {
+        $sourcePath = $_FILES['userImage']['tmp_name'];
+        $targetPath = "images/".$_FILES['userImage']['name'];
+        if(move_uploaded_file($sourcePath,$targetPath)) {
+        ?>
         <!-- Camera output src="//:1" -->
-        <img  alt="" id="camera--output" >
+        <img  alt="" id="camera--output" src="<?php echo $targetPath; ?>">
+        <?php
+          }
+          }
+          }
+          ?>
+
         <!-- Camera sensor -->
         <canvas #canvas id="camera--sensor"></canvas>
     </div>
@@ -28,7 +40,7 @@
         <button id="takePhotoButton" name="take Photo" type="button" >
           <!-- <input type="file" accept="image/*" capture="camera" class="hidden"/> -->
         </button>
-        <input id="uploadImage" name="upload" type="submit" value="UPLOAD"></input>
+        <input id="uploadImage" name="upload" type="submit" value="UPLOAD"/>
           <select name="" id="factoryName">
             　<option value="RAY">RAY</option>
 　            <option value="ECL">ECL</option>

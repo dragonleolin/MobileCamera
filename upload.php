@@ -1,38 +1,63 @@
 <?php
-$ftp_server = "ftp://file.stantex.com.tw";
-$ftp_user_name = "QCUL";
-$ftp_user_pass = "stx308";
-$ftp_port = "20";
-$destination_file = "QCWEB/";
-$source_file = $_FILES['file']['tmp_name'];
-
-// set up basic connection
-$conn_id = ftp_connect($ftp_server,$ftp_port);
-
-// login with username and password
-$login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass); 
-// ftp passive cmd
-ftp_pasv($conn_id, true);
-
-// check connection
-if ((!$conn_id) || (!$login_result)) { 
-    echo "FTP connection has failed!";
-    echo "Attempted to connect to $ftp_server for user $ftp_user_name"; 
-    exit; 
-} else {
-    echo "Connected to $ftp_server, for user $ftp_user_name";
+$host = 'ftp://61.221.169.237';
+$user = 'QCUL';
+$pwd = 'stx308';
+// $port = '20';
+// 進行ftp連線，根據port是否設定，傳遞的引數會不同
+if(empty($port)){
+$f_conn = ftp_connect($host);
+}else{
+$f_conn = ftp_connect($host, $port);
+}
+if(!$f_conn){
+echo "connect fail\n";
+exit(1);
+}
+echo "connect success\n";
+// 進行ftp登入，使用給定的ftp登入使用者名稱和密碼進行login
+$f_login = ftp_login($f_conn,$user,$pwd);
+if(!$f_login){
+echo "login fail\n";
+exit(1);
+}
+echo "login success\n";
+// 獲取當前所在的ftp目錄
+$in_dir = ftp_pwd($f_conn);
+if(!$in_dir){
+echo "get dir info fail\n";
+exit(1);
+}
+echo "$in_dir\n";
+// 獲取當前所在ftp目錄下包含的目錄與檔案
+$exist_dir = ftp_nlist($f_conn, ftp_pwd($f_conn));
+print_r($exist_dir);
+// 要求是按照日期在ftp目錄下建立資料夾作為檔案上傳存放目錄
+echo date("Ymd")."\n";
+$dir_name = date("Ymd");
+// 檢查ftp目錄下是否已存在當前日期的資料夾，如不存在則進行建立
+if(!in_array("$in_dir/$dir_name", $exist_dir)){
+if(!ftp_mkdir($f_conn, $dir_name)){
+echo "mkdir fail\n";
+exit(1);
+}else{
+echo "mkdir $dir_name success\n";
+}
+}
+// 切換目錄
+if(!ftp_chdir($f_conn, $dir_name)){
+echo "chdir fail\n";
+exit(1);
+}else{
+echo "chdir $dir_name success\n";
+}
+// 進行檔案上傳
+$result = ftp_put($f_conn, 'test.png', '/root/liang/ftp/test.png', FTP_BINARY);
+if(!$result){
+echo "upload file fail\n";
+exit(1);
+}else{
+echo "upload file success\n";
+exit(0);
 }
 
-// upload the file
-$upload = ftp_put($conn_id, $destination_file, $source_file, FTP_BINARY); 
-
-// check upload status
-if (!$upload) { 
-echo "FTP upload has failed!";
-} else {
-echo "Uploaded $source_file to $ftp_server as $destination_file";
-}
-
-// close the FTP stream 
-ftp_close($conn_id);
 ?>
